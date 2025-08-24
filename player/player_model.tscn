@@ -1,71 +1,85 @@
-[gd_scene load_steps=9 format=3 uid="uid://cji3oj636bqud"]
+[gd_scene load_steps=5 format=3 uid="uid://cji3oj636bqud"]
 
 [ext_resource type="PackedScene" uid="uid://mfn0gjhbf1ak" path="res://player/player.glb" id="1_70xuj"]
 [ext_resource type="Script" uid="uid://dki43vwwc5g84" path="res://addons/jigglebones/jigglebone.gd" id="2_65fbn"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mstlb"]
-albedo_color = Color(0.881937, 0.881937, 0.881937, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70xuj"]
-cull_mode = 2
-albedo_color = Color(0.329682, 0.188349, 0.045669, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_65fbn"]
-cull_mode = 2
-albedo_color = Color(1, 0.423039, 0.841234, 1)
+[ext_resource type="Texture2D" uid="uid://cwnnsxtlrlnmr" path="res://player/player.png" id="2_nis8b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xcvv"]
-albedo_color = Color(0.730472, 0.408234, 0.240445, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ugfh7"]
-albedo_color = Color(0, 0.815686, 0.815686, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nis8b"]
 cull_mode = 2
-albedo_color = Color(0.643137, 0.282353, 0.639216, 1)
+albedo_texture = ExtResource("2_nis8b")
+texture_filter = 0
 
 [node name="player" instance=ExtResource("1_70xuj")]
 
-[node name="Body" parent="Armature/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_mstlb")
+[node name="HatOrnament" parent="Armature/Skeleton3D" index="0"]
+transform = Transform3D(0.694487, -0.689129, 0.206856, 0.719475, 0.662505, -0.208428, 0.00659047, 0.293578, 0.955912, -0.0834214, 1.69243, 0.0433325)
 
-[node name="Cloak" parent="Armature/Skeleton3D" index="5"]
-surface_material_override/0 = SubResource("StandardMaterial3D_70xuj")
+[node name="HatOrnament" parent="Armature/Skeleton3D/HatOrnament" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4xcvv")
 
-[node name="Hair" parent="Armature/Skeleton3D" index="7"]
-surface_material_override/0 = SubResource("StandardMaterial3D_65fbn")
+[node name="Belt" parent="Armature/Skeleton3D" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4xcvv")
 
-[node name="Hat" parent="Armature/Skeleton3D" index="8"]
+[node name="Body" parent="Armature/Skeleton3D" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4xcvv")
+
+[node name="Boots" parent="Armature/Skeleton3D" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4xcvv")
+
+[node name="Cloak" parent="Armature/Skeleton3D" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4xcvv")
+
+[node name="Ears" parent="Armature/Skeleton3D" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4xcvv")
+
+[node name="Hair" parent="Armature/Skeleton3D" index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4xcvv")
+
+[node name="Hat" parent="Armature/Skeleton3D" index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4xcvv")
+
+[node name="HatBelt" parent="Armature/Skeleton3D" index="8"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4xcvv")
+
+[node name="Head" parent="Armature/Skeleton3D" index="9"]
 surface_material_override/0 = SubResource("StandardMaterial3D_4xcvv")
 
 [node name="Plane" parent="Armature/Skeleton3D" index="10"]
-surface_material_override/0 = SubResource("StandardMaterial3D_ugfh7")
+surface_material_override/0 = SubResource("StandardMaterial3D_4xcvv")
 
-[node name="Shawl_001" parent="Armature/Skeleton3D" index="11"]
-surface_material_override/0 = SubResource("StandardMaterial3D_nis8b")
+[node name="Pouch" parent="Armature/Skeleton3D" index="11"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4xcvv")
 
-[node name="JiggleHairUpper" type="Node3D" parent="Armature/Skeleton3D" index="12"]
-transform = Transform3D(1, -9.32587e-14, -2.3842e-07, 2.4207e-08, -0.994832, 0.101532, -2.37187e-07, -0.101532, -0.994837, -2.15579e-17, 0.530451, -0.111112)
+[node name="Shawl_001" parent="Armature/Skeleton3D" index="12"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4xcvv")
+
+[node name="ShirtEnd" parent="Armature/Skeleton3D" index="13"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4xcvv")
+
+[node name="JiggleHairUpper" type="Node3D" parent="Armature/Skeleton3D" index="14"]
+transform = Transform3D(1, 1.22269e-06, -1.5163e-07, 1.22284e-06, -1, 0.000992493, -1.50416e-07, -0.000992493, -1, -2.15579e-17, 0.530451, -0.134012)
 top_level = true
 script = ExtResource("2_65fbn")
 bone_name = "UpperHair"
-stiffness = 0.5
+stiffness = 0.1
+damping = 5.0
 use_gravity = true
 forward_axis = 1
 metadata/_custom_type_script = "uid://dki43vwwc5g84"
 
-[node name="JiggleHairLower" type="Node3D" parent="Armature/Skeleton3D" index="13"]
-transform = Transform3D(1, -4.44089e-15, -2.3842e-07, -7.26038e-09, -0.999536, -0.0304523, -2.38308e-07, 0.0304522, -0.999541, -2.09676e-14, 0.339686, -0.130581)
+[node name="JiggleHairLower" type="Node3D" parent="Armature/Skeleton3D" index="15"]
+transform = Transform3D(1, 4.9787e-07, -2.3854e-07, 4.97986e-07, -1, 0.000488281, -2.38297e-07, -0.000488281, -1, -8.06175e-16, 0.342649, -0.134011)
 top_level = true
 script = ExtResource("2_65fbn")
 bone_name = "LowerHair"
 stiffness = 0.1
+damping = 5.0
 use_gravity = true
 forward_axis = 1
 metadata/_custom_type_script = "uid://dki43vwwc5g84"
 
-[node name="JiggleCloakUpperL" type="Node3D" parent="Armature/Skeleton3D" index="14"]
-transform = Transform3D(-0.99999, 0.00443267, 5.15414e-05, -0.00443154, -0.999895, 0.0137362, 0.000112424, 0.0137358, 0.999906, 0.204425, -0.248924, -0.046982)
+[node name="JiggleCloakUpperL" type="Node3D" parent="Armature/Skeleton3D" index="16"]
+transform = Transform3D(-0.99999, 0.0044328, 5.15438e-05, -0.00443168, -0.999895, 0.013736, 0.000112427, 0.0137356, 0.999906, 0.204425, -0.248924, -0.0469819)
 top_level = true
 script = ExtResource("2_65fbn")
 bone_name = "UpperCloak.L"
@@ -75,8 +89,8 @@ use_gravity = true
 forward_axis = 1
 metadata/_custom_type_script = "uid://dki43vwwc5g84"
 
-[node name="JiggleCloakLowerL" type="Node3D" parent="Armature/Skeleton3D" index="15"]
-transform = Transform3D(-0.999998, -0.00221846, 7.4355e-05, 0.00221789, -0.999974, -0.00687425, 8.96033e-05, -0.00687406, 0.999977, 0.205573, -0.508004, -0.0434225)
+[node name="JiggleCloakLowerL" type="Node3D" parent="Armature/Skeleton3D" index="17"]
+transform = Transform3D(-0.999997, -0.00221756, 7.43683e-05, 0.00221699, -0.999974, -0.00687127, 8.96038e-05, -0.00687108, 0.999977, 0.205573, -0.508004, -0.0434226)
 top_level = true
 script = ExtResource("2_65fbn")
 bone_name = "LowerCloak.L"
@@ -86,8 +100,8 @@ use_gravity = true
 forward_axis = 1
 metadata/_custom_type_script = "uid://dki43vwwc5g84"
 
-[node name="JiggleCloakUpperR" type="Node3D" parent="Armature/Skeleton3D" index="16"]
-transform = Transform3D(-0.99999, -0.00443329, 2.73401e-05, 0.00443325, -0.999896, 0.0137378, -3.35664e-05, 0.0137378, 0.999906, -0.204425, -0.248924, -0.0469819)
+[node name="JiggleCloakUpperR" type="Node3D" parent="Armature/Skeleton3D" index="18"]
+transform = Transform3D(-0.99999, -0.00443334, 2.7336e-05, 0.0044333, -0.999896, 0.0137373, -3.35687e-05, 0.0137372, 0.999906, -0.204425, -0.248924, -0.0469819)
 top_level = true
 script = ExtResource("2_65fbn")
 bone_name = "UpperCloak.R"
@@ -97,13 +111,24 @@ use_gravity = true
 forward_axis = 1
 metadata/_custom_type_script = "uid://dki43vwwc5g84"
 
-[node name="JiggleCloakLowerR" type="Node3D" parent="Armature/Skeleton3D" index="17"]
-transform = Transform3D(-0.999998, 0.00221756, 4.53786e-06, -0.00221754, -0.999974, -0.00687084, -1.06988e-05, -0.00687083, 0.999976, -0.205573, -0.508004, -0.0434226)
+[node name="JiggleCloakLowerR" type="Node3D" parent="Armature/Skeleton3D" index="19"]
+transform = Transform3D(-0.999998, 0.00221704, 4.53226e-06, -0.00221702, -0.999974, -0.00687076, -1.07006e-05, -0.00687075, 0.999976, -0.205574, -0.508004, -0.0434225)
 top_level = true
 script = ExtResource("2_65fbn")
 bone_name = "LowerCloak.R"
 stiffness = 0.1
 damping = 0.5
+use_gravity = true
+forward_axis = 1
+metadata/_custom_type_script = "uid://dki43vwwc5g84"
+
+[node name="Jigglehat" type="Node3D" parent="Armature/Skeleton3D" index="20"]
+transform = Transform3D(0.967663, 0.183954, 0.172594, 0.0263373, -0.754172, 0.656148, 0.250867, -0.630385, -0.734629, 3.55374e-17, 0.787585, -0.0192055)
+top_level = true
+script = ExtResource("2_65fbn")
+bone_name = "HatTip"
+stiffness = 0.5
+damping = 1.0
 use_gravity = true
 forward_axis = 1
 metadata/_custom_type_script = "uid://dki43vwwc5g84"
