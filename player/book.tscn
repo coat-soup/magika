@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn5plsmm2xrg0"]
+
+[ext_resource type="PackedScene" uid="uid://114b475xhini" path="res://player/book.glb" id="1_r6qlp"]
+[ext_resource type="Texture2D" uid="uid://tqhu8k8knqov" path="res://player/book.png" id="2_advnq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_advnq"]
+albedo_texture = ExtResource("2_advnq")
+texture_filter = 0
+
+[node name="book" instance=ExtResource("1_r6qlp")]
+
+[node name="BookHolder" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Circle" parent="BookHolder" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_advnq")
+
+[node name="Circle_001" parent="BookHolder" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_advnq")
+
+[node name="Cube" parent="BookHolder" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_advnq")
+
+[node name="Cube_001" parent="BookHolder" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_advnq")
+
+[node name="Cube_002" parent="BookHolder" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_advnq")
+
+[node name="Cube_003" parent="BookHolder" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_advnq")
+
+[node name="Cube_004" parent="BookHolder" index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_advnq")

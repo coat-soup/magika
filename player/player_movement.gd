@@ -4,7 +4,7 @@ class_name PlayerMovement
 
 @export var speed : float = 7.0
 @export var jump_velocity = 6.0
-@export var turn_speed = 10.0
+@export var turn_speed = 5.0
 @export var sensetivity = 0.005
 
 @export var body : CharacterBody3D
@@ -16,7 +16,7 @@ var camera_pivot : Node3D
 @export var camera_angle_clamp := Vector2(-80, 30)
 
 var face_camera_timer := 0.0
-@export var face_camera_time := 3.0
+@export var face_camera_time := 5.0
 
 var landing : bool
 signal jump_start
@@ -49,9 +49,13 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction := (camera_pivot.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
+	
 	if input_dir != Vector2.ZERO:
 		var target_angle : float = Basis().looking_at(direction, Vector3.UP).get_euler().y if face_camera_timer <= 0 else camera_pivot.global_rotation.y
 		body.global_rotation.y = lerp_angle(body.global_rotation.y, target_angle, delta * turn_speed)
+	
+	direction.y = 0
+	direction = direction.normalized()
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and body.is_on_floor():
