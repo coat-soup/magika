@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	
 	shape_cast.target_position = velocity * delta
 	
-	if shape_cast.is_colliding():
+	if shape_cast.is_colliding() and not (shape_cast.get_collider(0) as PlayerManager):
 		handle_collision()
 	
 	global_position += velocity * delta

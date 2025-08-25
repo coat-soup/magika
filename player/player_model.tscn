@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://cji3oj636bqud"]
 
-[ext_resource type="PackedScene" uid="uid://mfn0gjhbf1ak" path="res://player/player.glb" id="1_70xuj"]
+[ext_resource type="PackedScene" uid="uid://mfn0gjhbf1ak" path="res://player/models/player.glb" id="1_70xuj"]
 [ext_resource type="Script" uid="uid://dki43vwwc5g84" path="res://addons/jigglebones/jigglebone.gd" id="2_65fbn"]
-[ext_resource type="Script" uid="uid://dyq5wye7mw5v" path="res://player/player_skeleton_controller.gd" id="2_mstlb"]
-[ext_resource type="Texture2D" uid="uid://cwnnsxtlrlnmr" path="res://player/player.png" id="2_nis8b"]
-[ext_resource type="PackedScene" uid="uid://cn5plsmm2xrg0" path="res://player/book.tscn" id="4_4xcvv"]
+[ext_resource type="Script" uid="uid://dyq5wye7mw5v" path="res://player/scripts/player_skeleton_controller.gd" id="2_mstlb"]
+[ext_resource type="Texture2D" uid="uid://cwnnsxtlrlnmr" path="res://player/textures/player.png" id="2_nis8b"]
+[ext_resource type="PackedScene" uid="uid://cn5plsmm2xrg0" path="res://player/models/book.tscn" id="4_4xcvv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mstlb"]
 cull_mode = 2

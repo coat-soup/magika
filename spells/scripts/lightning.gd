@@ -4,7 +4,7 @@ class_name Lightning
 @export var summon_delay : float = 3.0
 
 
-func activate():	
+func activate():
 	var space_state = get_world_3d().direct_space_state
 	var end_pos = global_position + global_basis.z.normalized() * spell_data.range
 	
@@ -20,9 +20,6 @@ func activate():
 
 
 func do_thing_at(pos : Vector3):
-	
-	print("DOING THING")
-	
 	global_position = pos
 	
 	global_rotation = Vector3.ZERO
@@ -36,4 +33,6 @@ func do_thing_at(pos : Vector3):
 	
 	await get_tree().create_timer(summon_delay / spell_data.speed).timeout
 	
+	$LightningSFX.pitch_scale = randf_range(0.8, 1.2)
+	$LightningSFX.play()
 	Explosion.explode_at_point(self, pos, spell_data.size, spell_data.power)

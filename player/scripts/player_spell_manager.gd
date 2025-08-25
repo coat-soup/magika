@@ -16,6 +16,12 @@ func _ready() -> void:
 		cooldowns.append(0)
 
 
+func _input(event: InputEvent) -> void:
+	var scroll_dir = int(Input.is_mouse_button_pressed(MOUSE_BUTTON_WHEEL_DOWN)) - int(Input.is_mouse_button_pressed(MOUSE_BUTTON_WHEEL_UP))
+	if scroll_dir != 0:
+		cur_spell = posmod((cur_spell + scroll_dir), len(spells))
+
+
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("attack"): try_cast_spell(cur_spell)
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b83h6mxen1c4"]
+[gd_scene load_steps=31 format=3 uid="uid://b83h6mxen1c4"]
 
 [ext_resource type="ArrayMesh" uid="uid://dyqxdxvvt1emi" path="res://vfx/models/round_projectile_head.obj" id="1_5sn28"]
 [ext_resource type="Script" uid="uid://cqfqob2ge15wx" path="res://spells/scripts/spell.gd" id="1_wj53r"]
@@ -10,6 +10,7 @@
 [ext_resource type="Shader" uid="uid://ojovyxd8g716" path="res://addons/GPUTrail-main/shaders/trail.gdshader" id="6_y80hd"]
 [ext_resource type="Shader" uid="uid://t4lyoc7wjfy7" path="res://addons/GPUTrail-main/shaders/trail_draw_pass.gdshader" id="7_k66fl"]
 [ext_resource type="Script" uid="uid://bvk073vilonp5" path="res://addons/GPUTrail-main/GPUTrail3D.gd" id="8_eet11"]
+[ext_resource type="AudioStream" uid="uid://dwcc3jc70xym3" path="res://sfx/fireball_woosh.wav" id="11_3c2kc"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_e6gjd"]
 frequency = 0.0039
@@ -111,7 +112,7 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("7_k66fl")
 shader_parameter/tex = ExtResource("5_2epwv")
-shader_parameter/uv_offset = Vector2(0.611747, 0)
+shader_parameter/uv_offset = Vector2(0.225135, 0)
 shader_parameter/color_ramp = SubResource("GradientTexture1D_qab27")
 shader_parameter/curve = SubResource("CurveTexture_boqda")
 shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
@@ -149,15 +150,15 @@ mesh = SubResource("PlaneMesh_elg58")
 
 [node name="GPUTrail3D" type="GPUParticles3D" parent="RoundProjectileHead"]
 transform = Transform3D(1, 0, 0, 0, 0.246962, 0, 0, 0, 1, 0, 0, 0)
-amount = 50
-lifetime = 50.0
+amount = 49
+lifetime = 49.0
 explosiveness = 1.0
 fixed_fps = 165
 process_material = SubResource("ShaderMaterial_jc42o")
 draw_pass_1 = SubResource("QuadMesh_1nl5u")
 script = ExtResource("8_eet11")
-length = 50
-length_seconds = 0.30303
+length = 49
+length_seconds = 0.29697
 texture = ExtResource("5_2epwv")
 scroll = Vector2(2, 0)
 color_ramp = SubResource("GradientTexture1D_qab27")
@@ -169,3 +170,10 @@ metadata/_custom_type_script = "uid://bvk073vilonp5"
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
 shape = SubResource("SphereShape3D_5sn28")
 target_position = Vector3(0, 0, 1)
+collision_mask = 3
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("11_3c2kc")
+unit_size = 30.0
+autoplay = true
+max_distance = 30.0

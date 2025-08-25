@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cnlis2j8edmy0"
-path="res://.godot/imported/player_cloak.glb-7a928ad80c92428535a8a28ca07ef372.scn"
+path="res://.godot/imported/player_cloak.glb-dff07fddc31b5221d5b0cb356eb530df.scn"
 
 [deps]
 
-source_file="res://player/player_cloak.glb"
-dest_files=["res://.godot/imported/player_cloak.glb-7a928ad80c92428535a8a28ca07ef372.scn"]
+source_file="res://player/models/player_cloak.glb"
+dest_files=["res://.godot/imported/player_cloak.glb-dff07fddc31b5221d5b0cb356eb530df.scn"]
 
 [params]
 
