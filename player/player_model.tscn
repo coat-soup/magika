@@ -39,7 +39,6 @@ blend_point_4/node = SubResource("AnimationNodeAnimation_ldqqv")
 blend_point_4/pos = Vector2(1, 0)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_4xcvv"]
-graph_offset = Vector2(-678, 76)
 nodes/MoveBlend/node = SubResource("AnimationNodeBlendSpace2D_b6qoi")
 nodes/MoveBlend/position = Vector2(-53, 87)
 node_connections = [&"output", 0, &"MoveBlend"]
@@ -48,22 +47,22 @@ node_connections = [&"output", 0, &"MoveBlend"]
 script = ExtResource("2_mstlb")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(0, 0.868245, 0)
-bones/9/rotation = Quaternion(-0.0104512, -0.0365598, -0.201369, 0.978777)
-bones/10/rotation = Quaternion(0.506932, -0.32665, -0.361099, 0.711286)
+bones/0/position = Vector3(0, 0.869523, 0)
+bones/9/rotation = Quaternion(-0.0151402, -0.0354639, -0.20223, 0.978579)
+bones/10/rotation = Quaternion(0.505365, -0.327286, -0.359983, 0.712672)
 bones/11/rotation = Quaternion(0.0383914, -0.299393, -0.42207, 0.854837)
-bones/15/rotation = Quaternion(0.0427299, -0.112223, 0.16694, 0.978627)
-bones/16/rotation = Quaternion(0.310195, 0.119913, 0.215176, 0.918204)
+bones/15/rotation = Quaternion(0.0459376, -0.133234, 0.161926, 0.976688)
+bones/16/rotation = Quaternion(0.318765, 0.119354, 0.22112, 0.91392)
 bones/17/rotation = Quaternion(0.164613, -0.143138, -0.196364, 0.955958)
 bones/18/rotation = Quaternion(-0.0627845, -0.119007, -0.033669, 0.990334)
-bones/20/rotation = Quaternion(0.0403798, 0.0533152, 0.997712, -0.00991431)
+bones/20/rotation = Quaternion(0.040345, 0.0448876, 0.998151, -0.00718542)
 bones/20/scale = Vector3(1, 1, 1.00001)
-bones/21/rotation = Quaternion(-0.121546, 0.000306204, -0.0342711, 0.991994)
-bones/24/rotation = Quaternion(0.0456903, 0.055575, 0.997399, 0.00429906)
-bones/25/rotation = Quaternion(-0.121637, 0.00132333, 0.0340915, 0.991988)
+bones/21/rotation = Quaternion(-0.104257, 0.000306857, -0.0293961, 0.994116)
+bones/24/rotation = Quaternion(0.0457743, 0.0469399, 0.997846, 0.00230752)
+bones/25/rotation = Quaternion(-0.104315, 0.00132617, 0.0292365, 0.994114)
 bones/28/rotation = Quaternion(4.09899e-05, 0.0137361, 0.999896, -0.00443223)
-bones/32/position = Vector3(0.310622, 1.12005, 0.259712)
-bones/33/position = Vector3(-0.354518, 0.981354, 0.179837)
+bones/32/position = Vector3(0.312452, 1.11854, 0.256625)
+bones/33/position = Vector3(-0.348203, 0.981459, 0.177686)
 bones/33/rotation = Quaternion(0.229165, 0.668942, 0.668942, 0.229165)
 bones/34/position = Vector3(0.0742249, 0.0230622, -0.00915117)
 bones/34/rotation = Quaternion(0.0145479, 0.706957, -0.706957, -0.0145479)
@@ -75,7 +74,7 @@ bones/37/position = Vector3(-0.0116916, 0.454745, 0.751588)
 bones/37/rotation = Quaternion(-0.000794889, 0.707106, 0.707106, -0.000794889)
 bones/38/position = Vector3(0.86561, 0.256208, 0.300649)
 bones/38/rotation = Quaternion(0.180928, -0.683568, 0.683568, -0.180928)
-bones/39/position = Vector3(-0.390601, 1.16023, -0.499439)
+bones/39/position = Vector3(-0.419655, 1.16023, -0.495211)
 bones/39/rotation = Quaternion(-0.180928, -0.683568, 0.683568, 0.180928)
 
 [node name="Belt" parent="Armature/Skeleton3D" index="0"]
@@ -121,7 +120,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_mstlb")
 surface_material_override/0 = SubResource("StandardMaterial3D_mstlb")
 
 [node name="JiggleHairUpper" type="Node3D" parent="Armature/Skeleton3D" index="14"]
-transform = Transform3D(1, 1.69354e-08, -1.51007e-07, 1.69368e-08, -1, 9.31532e-06, -1.51007e-07, -9.31532e-06, -1, -2.1558e-17, 0.526668, -0.134012)
+transform = Transform3D(1, 1.69354e-08, -1.51007e-07, 1.69368e-08, -1, 9.31532e-06, -1.51007e-07, -9.31532e-06, -1, -2.15579e-17, 0.528004, -0.134011)
 top_level = true
 script = ExtResource("2_65fbn")
 bone_name = "UpperHair"
@@ -132,7 +131,7 @@ forward_axis = 1
 metadata/_custom_type_script = "uid://dki43vwwc5g84"
 
 [node name="JiggleHairLower" type="Node3D" parent="Armature/Skeleton3D" index="15"]
-transform = Transform3D(1, 3.56488e-08, -2.38142e-07, 3.53941e-08, -1, -0.0010693, -2.3818e-07, 0.0010693, -1, -3.11001e-09, 0.338623, -0.133997)
+transform = Transform3D(1, 3.56488e-08, -2.38142e-07, 3.53941e-08, -1, -0.0010693, -2.3818e-07, 0.0010693, -1, -8.06172e-16, 0.340202, -0.134012)
 top_level = true
 script = ExtResource("2_65fbn")
 bone_name = "LowerHair"
@@ -143,7 +142,7 @@ forward_axis = 1
 metadata/_custom_type_script = "uid://dki43vwwc5g84"
 
 [node name="JiggleCloakUpperR" type="Node3D" parent="Armature/Skeleton3D" index="16"]
-transform = Transform3D(-0.99999, -0.00443266, 2.73311e-05, 0.00443262, -0.999896, 0.0137358, -3.35579e-05, 0.0137358, 0.999906, -0.204425, -0.252633, -0.046982)
+transform = Transform3D(-0.99999, -0.00443311, 2.7333e-05, 0.00443307, -0.999896, 0.0137366, -3.35655e-05, 0.0137365, 0.999906, -0.204425, -0.25148, -0.0469819)
 top_level = true
 script = ExtResource("2_65fbn")
 bone_name = "UpperCloak.R"
@@ -154,7 +153,7 @@ forward_axis = 1
 metadata/_custom_type_script = "uid://dki43vwwc5g84"
 
 [node name="JiggleCloakLowerR" type="Node3D" parent="Armature/Skeleton3D" index="17"]
-transform = Transform3D(-0.999998, 0.00221788, 4.53923e-06, -0.00221786, -0.999974, -0.00687177, -1.07016e-05, -0.00687176, 0.999976, -0.205573, -0.511726, -0.0434228)
+transform = Transform3D(-0.999998, 0.00221722, 4.53401e-06, -0.0022172, -0.999974, -0.00687141, -1.07016e-05, -0.00687141, 0.999976, -0.205574, -0.510604, -0.0434231)
 top_level = true
 script = ExtResource("2_65fbn")
 bone_name = "LowerCloak.R"
@@ -165,7 +164,7 @@ forward_axis = 1
 metadata/_custom_type_script = "uid://dki43vwwc5g84"
 
 [node name="JiggleCloakUpperR2" type="Node3D" parent="Armature/Skeleton3D" index="18"]
-transform = Transform3D(-0.99999, 0.00443292, 5.15378e-05, -0.00443179, -0.999895, 0.013737, 0.000112427, 0.0137366, 0.999906, 0.204425, -0.252633, -0.046982)
+transform = Transform3D(-0.99999, 0.00443364, 5.15322e-05, -0.00443252, -0.999895, 0.0137386, 0.000112439, 0.0137382, 0.999906, 0.204425, -0.25148, -0.0469819)
 top_level = true
 script = ExtResource("2_65fbn")
 bone_name = "UpperCloak.L"
@@ -176,7 +175,7 @@ forward_axis = 1
 metadata/_custom_type_script = "uid://dki43vwwc5g84"
 
 [node name="JiggleCloakLowerR2" type="Node3D" parent="Armature/Skeleton3D" index="19"]
-transform = Transform3D(-0.999997, -0.00221795, 7.43593e-05, 0.00221739, -0.999974, -0.0068724, 8.96e-05, -0.00687221, 0.999976, 0.205573, -0.511725, -0.0434229)
+transform = Transform3D(-0.999998, -0.00221806, 7.43641e-05, 0.0022175, -0.999974, -0.006873, 8.96069e-05, -0.00687282, 0.999976, 0.205573, -0.510603, -0.0434228)
 top_level = true
 script = ExtResource("2_65fbn")
 bone_name = "LowerCloak.L"
@@ -187,7 +186,7 @@ forward_axis = 1
 metadata/_custom_type_script = "uid://dki43vwwc5g84"
 
 [node name="Jigglehat" type="Node3D" parent="Armature/Skeleton3D" index="20"]
-transform = Transform3D(0.967663, 0.183954, 0.172594, 0.0263373, -0.754172, 0.656148, 0.250867, -0.630385, -0.734629, 3.55374e-17, 0.783877, -0.0192055)
+transform = Transform3D(0.967663, 0.183954, 0.172594, 0.0263373, -0.754172, 0.656148, 0.250867, -0.630385, -0.734629, 3.55374e-17, 0.78503, -0.0192055)
 top_level = true
 script = ExtResource("2_65fbn")
 bone_name = "HatTip"
@@ -198,14 +197,50 @@ forward_axis = 1
 metadata/_custom_type_script = "uid://dki43vwwc5g84"
 
 [node name="Book" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="21"]
-transform = Transform3D(-0.314292, -0.532966, 0.7856, 0.745745, 0.373465, 0.551714, -0.587439, 0.759257, 0.280079, 0.276496, 1.1435, 0.310144)
+transform = Transform3D(-0.318533, -0.525308, 0.789042, 0.752672, 0.365832, 0.547405, -0.576213, 0.768256, 0.278855, 0.279032, 1.14083, 0.307276)
 bone_name = "Hand.L"
 bone_idx = 12
 
 [node name="book" parent="Armature/Skeleton3D/Book" index="0" instance=ExtResource("4_4xcvv")]
 transform = Transform3D(-0.26996, -0.958867, -0.0877259, 0.732354, -0.263626, 0.62782, -0.625123, 0.10524, 0.773398, 0.00324461, 0.0715118, 0.0659854)
 
+[node name="UpperArmIK" type="LookAtModifier3D" parent="Armature/Skeleton3D" index="22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.269458, 1.14995, 0.0304112)
+target_node = NodePath("../../../LowerArmIKTarget/UpperArmIKTarget")
+bone_name = "UpperArm.R"
+bone = 15
+forward_axis = 2
+primary_rotation_axis = 0
+
+[node name="LowerArmIK" type="LookAtModifier3D" parent="Armature/Skeleton3D" index="23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.339555, 0.957075, 0.335729)
+target_node = NodePath("../../../LowerArmIKTarget")
+bone_name = "LowerArm.R"
+bone = 16
+forward_axis = 2
+primary_rotation_axis = 0
+
+[node name="HandIK" type="LookAtModifier3D" parent="Armature/Skeleton3D" index="24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.339555, 0.957075, 0.335729)
+target_node = NodePath("../../../HandIKTarget")
+bone_name = "Hand.R"
+bone = 17
+forward_axis = 2
+primary_rotation_axis = 2
+origin_from = 1
+origin_bone_name = "LowerArm.R"
+origin_bone = 16
+
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = SubResource("AnimationNodeBlendTree_4xcvv")
 anim_player = NodePath("../AnimationPlayer")
 parameters/MoveBlend/blend_position = Vector2(0, 0)
+
+[node name="HandIKTarget" type="Marker3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343578, 1.5214, 0.247557)
+
+[node name="LowerArmIKTarget" type="Marker3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343578, 1.36803, 0.308961)
+
+[node name="UpperArmIKTarget" type="Marker3D" parent="LowerArmIKTarget" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0333511, -0.0731249, -0.166676)
