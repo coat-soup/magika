@@ -6,8 +6,9 @@
 script = ExtResource("1_h8eo1")
 spell_name = "Fireball"
 prefab_path = "res://spells/scenes/fireball.tscn"
-power = 1.0
+power = 30.0
 speed = 20.0
 range = 30.0
 cast_rate = 1.0
+size = 1.0
 metadata/_custom_type_script = "uid://bxkbqqyepynwh"

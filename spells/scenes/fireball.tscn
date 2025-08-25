@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://b83h6mxen1c4"]
+[gd_scene load_steps=30 format=3 uid="uid://b83h6mxen1c4"]
 
 [ext_resource type="ArrayMesh" uid="uid://dyqxdxvvt1emi" path="res://vfx/models/round_projectile_head.obj" id="1_5sn28"]
 [ext_resource type="Script" uid="uid://cqfqob2ge15wx" path="res://spells/scripts/spell.gd" id="1_wj53r"]
+[ext_resource type="PackedScene" uid="uid://bfe7mdyrgiahp" path="res://vfx/scenes/fireball_impact.tscn" id="2_7gksg"]
 [ext_resource type="Shader" uid="uid://bob8g3pn4ahpb" path="res://vfx/shaders/fireball_head.tres" id="2_wj53r"]
 [ext_resource type="Texture2D" uid="uid://dprduhb75sqbm" path="res://vfx/textures/blobby.png" id="3_7gksg"]
 [ext_resource type="Shader" uid="uid://dlyo4xm1lro7g" path="res://vfx/shaders/fireball_trail.tres" id="4_3c2kc"]
@@ -110,7 +111,7 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("7_k66fl")
 shader_parameter/tex = ExtResource("5_2epwv")
-shader_parameter/uv_offset = Vector2(0.606823, 0)
+shader_parameter/uv_offset = Vector2(0.672505, 0)
 shader_parameter/color_ramp = SubResource("GradientTexture1D_qab27")
 shader_parameter/curve = SubResource("CurveTexture_boqda")
 shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
@@ -124,6 +125,7 @@ radius = 0.3
 
 [node name="Fireball" type="Node3D"]
 script = ExtResource("1_wj53r")
+impact_particles = ExtResource("2_7gksg")
 
 [node name="RoundProjectileHead" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

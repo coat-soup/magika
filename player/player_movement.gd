@@ -10,7 +10,7 @@ class_name PlayerMovement
 @export var body : CharacterBody3D
 @onready var player: PlayerManager = $".."
 
-var camera_pivot : Node3D
+var camera_pivot: Node3D
 @onready var camera_rt: RemoteTransform3D = $"../RemoteTransform3D"
 
 @export var camera_angle_clamp := Vector2(-80, 30)

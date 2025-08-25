@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://v17ctq8q57wy"]
+[gd_scene load_steps=9 format=3 uid="uid://v17ctq8q57wy"]
 
 [ext_resource type="Script" uid="uid://co2kieex31iyd" path="res://player/player_movement.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bgwpxtdhh5567" path="res://player/player_manager.gd" id="1_rkbax"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c03v7twr36odm" path="res://player/player_spell_manager.gd" id="4_yw30f"]
 [ext_resource type="Script" uid="uid://bxkbqqyepynwh" path="res://spells/scripts/spell_data.gd" id="5_g6k8r"]
 [ext_resource type="Resource" uid="uid://6vbctqshr00b" path="res://spells/data/fireball_data.tres" id="6_boad6"]
+[ext_resource type="Script" uid="uid://c51uewr0gwe3k" path="res://system/health.gd" id="7_boad6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
@@ -27,6 +28,7 @@ script = ExtResource("1_oul6g")
 body = NodePath("..")
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75844, 0)
 update_rotation = false
 update_scale = false
 
@@ -35,3 +37,7 @@ transform = Transform3D(-1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, -1, 4.7187
 script = ExtResource("4_yw30f")
 spells = Array[ExtResource("5_g6k8r")]([ExtResource("6_boad6")])
 metadata/_custom_type_script = "uid://c03v7twr36odm"
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("7_boad6")
+metadata/_custom_type_script = "uid://c51uewr0gwe3k"

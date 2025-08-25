@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dom3ahxd24ayv"]
+
+[ext_resource type="Script" uid="uid://c51uewr0gwe3k" path="res://system/health.gd" id="1_ikrij"]
+[ext_resource type="Script" uid="uid://cp5aafvmsg6ei" path="res://enemies/enemy.gd" id="1_jrvf6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xpx2r"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpx2r"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xpx2r"]
+material = SubResource("StandardMaterial3D_xpx2r")
+size = Vector3(1, 2, 1)
+
+[node name="EnemyTest" type="CharacterBody3D" node_paths=PackedStringArray("health")]
+script = ExtResource("1_jrvf6")
+health = NodePath("Health")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_xpx2r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_xpx2r")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("1_ikrij")
+metadata/_custom_type_script = "uid://c51uewr0gwe3k"

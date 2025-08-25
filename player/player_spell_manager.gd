@@ -10,7 +10,7 @@ const SPELL_CIRCLE_FX = preload("res://vfx/scenes/spell_circle_fx.tscn")
 
 
 func _ready() -> void:
-	camera = (get_parent_node_3d() as PlayerManager).camera_pivot
+	camera = (get_parent_node_3d() as PlayerManager).camera_pivot.get_child(0)
 	
 	for spell in spells:
 		cooldowns.append(0)
@@ -32,7 +32,7 @@ func try_cast_spell(i):
 	spell.spell_data = spells[i]
 	get_tree().root.add_child(spell)
 	spell.global_position = global_position
-	spell.look_at(spell.global_position + camera.global_basis.z)
+	spell.look_at(get_camera_ray_pos(spells[i].range), Vector3.UP, true)
 	spell.activate()
 	
 	cooldowns[i] = 1.0 / spells[i].cast_rate
@@ -40,4 +40,13 @@ func try_cast_spell(i):
 	var fx = SPELL_CIRCLE_FX.instantiate()
 	get_tree().root.add_child(fx)
 	fx.global_position = global_position
-	fx.global_rotation = global_rotation
+	fx.global_rotation = spell.global_rotation
+
+
+
+func get_camera_ray_pos(dist) -> Vector3:
+	var space_state = get_world_3d().direct_space_state
+	var end_pos = camera.global_position + -camera.global_basis.z.normalized() * dist * 1.5
+	var query = PhysicsRayQueryParameters3D.create(camera.global_position, end_pos, 0b1)
+	var result = space_state.intersect_ray(query)
+	return result.position if result else end_pos

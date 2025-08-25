@@ -8,3 +8,4 @@ class_name SpellData
 @export var speed : float = 1.0
 @export var range : float = 1.0
 @export var cast_rate : float = 1.0
+@export var size : float = 1.0
