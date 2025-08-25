@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=2 format=3 uid="uid://cys4m2wwjwc46"]
+
+[ext_resource type="Script" uid="uid://bxkbqqyepynwh" path="res://spells/scripts/spell_data.gd" id="1_n047p"]
+
+[resource]
+script = ExtResource("1_n047p")
+spell_name = "Lightning"
+prefab_path = "res://spells/scenes/lightning.tscn"
+power = 20.0
+speed = 1.0
+range = 10.0
+cast_rate = 5.0
+size = 1.0
+metadata/_custom_type_script = "uid://bxkbqqyepynwh"

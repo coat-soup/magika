@@ -1,12 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bvj1lrvtjo8hh"]
+[gd_scene load_steps=10 format=3 uid="uid://bvj1lrvtjo8hh"]
 
 [ext_resource type="PackedScene" uid="uid://v17ctq8q57wy" path="res://player/player.tscn" id="1_fim04"]
 [ext_resource type="Script" uid="uid://u3177tjci8s6" path="res://levels/game_manager.gd" id="1_jh6tj"]
 [ext_resource type="PackedScene" uid="uid://dshmv0kl4f2g" path="res://ui/ui.tscn" id="2_o6pmk"]
 [ext_resource type="Shader" uid="uid://dohas0kib6yu1" path="res://levels/prototype_grid.gdshader" id="2_t1no0"]
 [ext_resource type="PackedScene" uid="uid://dom3ahxd24ayv" path="res://enemies/enemy_test.tscn" id="4_nb50o"]
-[ext_resource type="ArrayMesh" uid="uid://c1162bch8u8ov" path="res://vfx/models/lightning_shape.obj" id="6_km4ku"]
-[ext_resource type="Shader" uid="uid://dhilnaew3cgyr" path="res://vfx/shaders/texture_scroll.tres" id="7_svve8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fim04"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -45,10 +43,6 @@ shader_parameter/use_inside_uv = false
 shader_parameter/use_albedo_color = false
 shader_parameter/albedo_alpha = 0.5
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cb3e4"]
-render_priority = 0
-shader = ExtResource("7_svve8")
-
 [node name="Prototyping" type="Node3D"]
 script = ExtResource("1_jh6tj")
 
@@ -81,8 +75,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4806, 1.5, -4.8798)
 
 [node name="CharacterBody3D2" parent="." instance=ExtResource("4_nb50o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47855, 1.5, -8.61318)
-
-[node name="LightningShape" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.01101, 0.532553, -12.7483)
-mesh = ExtResource("6_km4ku")
-surface_material_override/0 = SubResource("ShaderMaterial_cb3e4")

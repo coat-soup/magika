@@ -14,6 +14,8 @@ material = SubResource("StandardMaterial3D_xpx2r")
 size = Vector3(1, 2, 1)
 
 [node name="EnemyTest" type="CharacterBody3D" node_paths=PackedStringArray("health")]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_jrvf6")
 health = NodePath("Health")
 

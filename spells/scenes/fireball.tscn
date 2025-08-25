@@ -111,7 +111,7 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("7_k66fl")
 shader_parameter/tex = ExtResource("5_2epwv")
-shader_parameter/uv_offset = Vector2(0.672505, 0)
+shader_parameter/uv_offset = Vector2(0.611747, 0)
 shader_parameter/color_ramp = SubResource("GradientTexture1D_qab27")
 shader_parameter/curve = SubResource("CurveTexture_boqda")
 shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
@@ -123,8 +123,9 @@ material = SubResource("ShaderMaterial_75wvb")
 [sub_resource type="SphereShape3D" id="SphereShape3D_5sn28"]
 radius = 0.3
 
-[node name="Fireball" type="Node3D"]
+[node name="Fireball" type="Node3D" node_paths=PackedStringArray("shape_cast")]
 script = ExtResource("1_wj53r")
+shape_cast = NodePath("ShapeCast3D")
 impact_particles = ExtResource("2_7gksg")
 
 [node name="RoundProjectileHead" type="MeshInstance3D" parent="."]

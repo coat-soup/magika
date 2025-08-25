@@ -32,15 +32,18 @@ func try_cast_spell(i):
 	spell.spell_data = spells[i]
 	get_tree().root.add_child(spell)
 	spell.global_position = global_position
-	spell.look_at(get_camera_ray_pos(spells[i].range), Vector3.UP, true)
-	spell.activate()
 	
-	cooldowns[i] = 1.0 / spells[i].cast_rate
+	var end_pos = get_camera_ray_pos(spells[i].range)
+	
+	spell.look_at(end_pos, Vector3.UP, true)
 	
 	var fx = SPELL_CIRCLE_FX.instantiate()
 	get_tree().root.add_child(fx)
 	fx.global_position = global_position
 	fx.global_rotation = spell.global_rotation
+	
+	spell.activate()
+	cooldowns[i] = 1.0 / spells[i].cast_rate
 
 
 

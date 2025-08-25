@@ -27,9 +27,6 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	camera_pivot = player.camera_pivot
 	camera_rt.remote_path = camera_pivot.get_path()
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("attack"): face_camera()
 	
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -42,6 +39,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	if face_camera_timer > 0: face_camera_timer -= delta
+	
+	if Input.is_action_pressed("attack"): face_camera()
 	
 	if not body.is_on_floor():
 		body.velocity += body.get_gravity() * delta

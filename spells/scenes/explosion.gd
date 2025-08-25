@@ -6,11 +6,23 @@ class_name Explosion
 @onready var col: CollisionShape3D = $Area3D/CollisionShape3D
 
 
+static func explode_at_point(source : Node3D, pos : Vector3, radius : float, damage : float, particles : PackedScene = null):
+	var exp = preload("res://spells/scenes/explosion.tscn").instantiate() as Explosion
+	exp.particles_scene = particles
+	source.get_tree().root.add_child(exp)
+	exp.global_position = pos
+	exp.explode(radius, damage)
+	
+	await source.get_tree().create_timer(3.0).timeout
+	exp.queue_free()
+
+
 func explode(radius, damage):
-	var p = particles_scene.instantiate() as Node3D
-	get_tree().root.add_child(p)
-	p.global_position = global_position
-	p.global_scale(Vector3.ONE * radius)
+	if particles_scene:
+		var p = particles_scene.instantiate() as Node3D
+		get_tree().root.add_child(p)
+		p.global_position = global_position
+		p.global_scale(Vector3.ONE * radius)
 	
 	(col.shape as SphereShape3D).radius = radius
 	
