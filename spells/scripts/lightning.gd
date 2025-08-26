@@ -6,7 +6,7 @@ class_name Lightning
 
 func activate():
 	var space_state = get_world_3d().direct_space_state
-	var end_pos = global_position + global_basis.z.normalized() * spell_data.range
+	var end_pos = global_position + global_basis.z.normalized() * spell_data.get_range()
 	
 	var query = PhysicsRayQueryParameters3D.create(global_position, end_pos, 0b1)
 	var result = space_state.intersect_ray(query)
@@ -24,15 +24,15 @@ func do_thing_at(pos : Vector3):
 	
 	global_rotation = Vector3.ZERO
 	
-	global_scale(Vector3.ONE * spell_data.size)
-	$AnimationPlayer.speed_scale = spell_data.speed / summon_delay
+	global_scale(Vector3.ONE * spell_data.get_size())
+	$AnimationPlayer.speed_scale = spell_data.get_speed() / summon_delay
 	$AnimationPlayer.play("cast")
 	
 	$SpellCircle.global_position = pos + Vector3(0, 8.0, 0)
 	$SpellCircle.look_at(pos + Vector3.UP * 50.0)
 	
-	await get_tree().create_timer(summon_delay / spell_data.speed).timeout
+	await get_tree().create_timer(summon_delay / spell_data.get_speed()).timeout
 	
 	$LightningSFX.pitch_scale = randf_range(0.8, 1.2)
 	$LightningSFX.play()
-	Explosion.explode_at_point(self, pos, spell_data.size, spell_data.power, 1)
+	Explosion.explode_at_point(self, pos, spell_data.get_size(), spell_data.get_power(), 1)

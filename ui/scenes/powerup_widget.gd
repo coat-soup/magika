@@ -45,7 +45,6 @@ func _process(delta: float) -> void:
 	for rep in repulsors:
 		var d = global_position - rep.global_position
 		var strength = (pow(d.length() / $Repulsor/Col.shape.radius, 2)) * 0.2
-		print(strength)
 		repulse_vel += d * strength
 	
 	global_position += repulse_vel * delta
@@ -53,8 +52,6 @@ func _process(delta: float) -> void:
 
 func begin_drag():
 	dragging = true
-	
-	print("dragging")
 	
 	drag_started.emit()
 

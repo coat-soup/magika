@@ -14,4 +14,5 @@ func on_died():
 		var powerup = preload("res://spells/scenes/powerup.tscn").instantiate()
 		get_tree().root.add_child(powerup)
 		powerup.global_position = global_position
+		powerup.type = randi_range(0, Powerup.UpgradeType.size() - 1)
 	queue_free()

@@ -251,4 +251,128 @@ position = Vector2(35, 35)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpellBook/SpellSlot4/Repulsor"]
 shape = SubResource("CircleShape2D_bo1jx")
 
+[node name="Hotbar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -199.585
+offset_top = 10.0
+offset_right = 199.585
+offset_bottom = 81.705
+grow_horizontal = 2
+theme_override_constants/separation = 110
+
+[node name="SpellSlot" type="TextureRect" parent="Hotbar"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("5_tf0e0")
+expand_mode = 1
+
+[node name="BG" type="TextureRect" parent="Hotbar/SpellSlot"]
+modulate = Color(0, 0, 0, 0.061)
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+texture = ExtResource("6_bo1jx")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="Hotbar/SpellSlot"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+expand_mode = 1
+
+[node name="Circle" type="TextureRect" parent="Hotbar/SpellSlot"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+texture = ExtResource("5_tf0e0")
+expand_mode = 1
+
+[node name="SpellSlot2" type="TextureRect" parent="Hotbar"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("5_tf0e0")
+expand_mode = 1
+
+[node name="BG" type="TextureRect" parent="Hotbar/SpellSlot2"]
+modulate = Color(0.62, 0.785, 0.852, 0.508)
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+texture = ExtResource("6_bo1jx")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="Hotbar/SpellSlot2"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+expand_mode = 1
+
+[node name="Circle" type="TextureRect" parent="Hotbar/SpellSlot2"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+texture = ExtResource("5_tf0e0")
+expand_mode = 1
+
+[node name="SpellSlot3" type="TextureRect" parent="Hotbar"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("5_tf0e0")
+expand_mode = 1
+
+[node name="BG" type="TextureRect" parent="Hotbar/SpellSlot3"]
+modulate = Color(0, 0, 0, 0.061)
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+texture = ExtResource("6_bo1jx")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="Hotbar/SpellSlot3"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+expand_mode = 1
+
+[node name="Circle" type="TextureRect" parent="Hotbar/SpellSlot3"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+texture = ExtResource("5_tf0e0")
+expand_mode = 1
+
+[node name="SpellSlot4" type="TextureRect" parent="Hotbar"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("5_tf0e0")
+expand_mode = 1
+
+[node name="BG" type="TextureRect" parent="Hotbar/SpellSlot4"]
+modulate = Color(0, 0, 0, 0.061)
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+texture = ExtResource("6_bo1jx")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="Hotbar/SpellSlot4"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+expand_mode = 1
+
+[node name="Circle" type="TextureRect" parent="Hotbar/SpellSlot4"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+texture = ExtResource("5_tf0e0")
+expand_mode = 1
+
 [node name="UIAudio" type="AudioStreamPlayer" parent="."]

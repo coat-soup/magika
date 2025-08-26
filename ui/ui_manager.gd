@@ -24,6 +24,8 @@ func _ready() -> void:
 	for i in range(len(spell_slots)):
 		spell_slots[i].mouse_entered.connect(set_active_slot.bind(i))
 		spell_slots[i].mouse_exited.connect(set_active_slot.bind(-1))
+	
+	set_active_hotbar_slot(0)
 
 
 func _input(event: InputEvent) -> void:
@@ -50,6 +52,7 @@ func set_active_slot(slot : int):
 func equip_spell(spell : SpellData, slot : int):
 	if not is_instance_valid(spell): return
 	(spell_slots[slot].get_child(1) as TextureRect).texture = spell.icon
+	$Hotbar.get_child(slot).get_child(1).texture = spell.icon
 
 
 func toggle_spellbook(value):
@@ -79,4 +82,9 @@ func powerup_drag_started(powerup : PowerupWidget):
 func powerup_drag_ended(powerup : PowerupWidget):
 	if active_slot != -1 and Global.player.spell_manager.spells[active_slot]:
 		powerup.connect_spell_slot = active_slot
-		Global.player.spell_manager.change_powerup(powerup.connect_spell_slot, powerup.powerup_type, -1)
+		Global.player.spell_manager.change_powerup(powerup.connect_spell_slot, powerup.powerup_type, 1)
+
+
+func set_active_hotbar_slot(id : int):
+	for slot in $Hotbar.get_children():
+		(slot.get_child(0) as TextureRect).modulate = Color.hex(0x9ec8d982) if slot.get_index() == id else Color.hex(0x00000040)

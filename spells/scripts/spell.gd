@@ -16,7 +16,7 @@ var active := false
 
 
 func activate():
-	velocity = global_basis.z.normalized() * spell_data.speed
+	velocity = global_basis.z.normalized() * spell_data.get_speed()
 	
 	cast.emit()
 	
@@ -34,18 +34,18 @@ func _physics_process(delta: float) -> void:
 	global_position += velocity * delta
 	
 	distance_covered += velocity.length() * delta
-	if distance_covered >= spell_data.range: dissipate()
+	if distance_covered >= spell_data.get_range(): dissipate()
 
 
 func handle_collision():
 	hit.emit()
-	if spell_data.size == 0:
+	if spell_data.get_size() == 0:
 		var health : Health = shape_cast.get_collider(0).get_node_or_null("Health") as Health
 		if health:
 			print("hit health thing. sending damage")
-			health.take_damage(spell_data.power, 1)
+			health.take_damage(spell_data.get_power(), 1)
 	else:
-		Explosion.explode_at_point(self, shape_cast.get_collision_point(0), spell_data.size, spell_data.power, 1, impact_particles)
+		Explosion.explode_at_point(self, shape_cast.get_collision_point(0), spell_data.get_size(), spell_data.get_power(), 1, impact_particles)
 	
 	queue_free()
 

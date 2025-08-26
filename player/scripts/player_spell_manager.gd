@@ -21,6 +21,8 @@ func _input(event: InputEvent) -> void:
 	if scroll_dir != 0:
 		cur_spell = posmod((cur_spell + scroll_dir), len(spells))
 		while not spells[cur_spell]: cur_spell = posmod((cur_spell + scroll_dir), len(spells))
+		
+		Global.ui.set_active_hotbar_slot(cur_spell)
 
 
 func _process(delta: float) -> void:
@@ -50,7 +52,7 @@ func try_cast_spell(i):
 	fx.global_rotation = spell.global_rotation
 	
 	spell.activate()
-	cooldowns[i] = 1.0 / spells[i].cast_rate
+	cooldowns[i] = 1.0 / spells[i].get_cast_rate()
 
 
 

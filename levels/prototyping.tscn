@@ -83,11 +83,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4806, 1.5, -4.8798)
 [node name="EnemyTest2" parent="." instance=ExtResource("4_nb50o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47855, 1.5, -8.61318)
 
+[node name="EnemyTest3" parent="." instance=ExtResource("4_nb50o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47855, 1.5, -9.61318)
+
+[node name="EnemyTest4" parent="." instance=ExtResource("4_nb50o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47855, 1.5, -7.61318)
+
+[node name="EnemyTest5" parent="." instance=ExtResource("4_nb50o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.47855, 1.5, -8.61318)
+
+[node name="EnemyTest6" parent="." instance=ExtResource("4_nb50o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.47855, 1.5, -6.61318)
+
+[node name="EnemyTest7" parent="." instance=ExtResource("4_nb50o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.47855, 1.5, -7.61318)
+
+[node name="EnemyTest8" parent="." instance=ExtResource("4_nb50o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.47855, 1.5, -6.61318)
+
+[node name="EnemyTest9" parent="." instance=ExtResource("4_nb50o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.47855, 1.5, -4.61318)
+
 [node name="Powerup" parent="." instance=ExtResource("6_km4ku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45783, 0.967343, -0.620559)
+type = 4
 
 [node name="Powerup2" parent="." instance=ExtResource("6_km4ku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.08965, 0.967343, -1.91276)
+type = 4
 
 [node name="Powerup3" parent="." instance=ExtResource("6_km4ku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67857, 0.967343, -2.7717)
+type = 4
