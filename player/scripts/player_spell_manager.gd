@@ -8,8 +8,6 @@ var camera : Node3D
 
 const SPELL_CIRCLE_FX = preload("res://vfx/scenes/spell_circle_fx.tscn")
 
-var powerups : int
-
 
 func _ready() -> void:
 	camera = (get_parent_node_3d() as PlayerManager).camera_pivot.get_child(0)
@@ -22,6 +20,7 @@ func _input(event: InputEvent) -> void:
 	var scroll_dir = int(Input.is_mouse_button_pressed(MOUSE_BUTTON_WHEEL_DOWN)) - int(Input.is_mouse_button_pressed(MOUSE_BUTTON_WHEEL_UP))
 	if scroll_dir != 0:
 		cur_spell = posmod((cur_spell + scroll_dir), len(spells))
+		while not spells[cur_spell]: cur_spell = posmod((cur_spell + scroll_dir), len(spells))
 
 
 func _process(delta: float) -> void:
@@ -63,18 +62,15 @@ func get_camera_ray_pos(dist) -> Vector3:
 	return result.position if result else end_pos
 
 
-func get_powerup(type : int):
+func change_powerup(spell_slot : int, type : int, diff : int): # diff is -1 or 1 (1 adds, -1 subtracts)
 	match type:
 		Powerup.UpgradeType.POWER:
-			pass
+			spells[spell_slot].pow_ups += diff
 		Powerup.UpgradeType.SPEED:
-			pass
+			spells[spell_slot].speed_ups += diff
 		Powerup.UpgradeType.RANGE:
-			pass
+			spells[spell_slot].range_ups += diff
 		Powerup.UpgradeType.CAST_RATE:
-			pass
+			spells[spell_slot].cast_ups += diff
 		Powerup.UpgradeType.SIZE:
-			pass
-	
-	# palceholder
-	powerups += 1
+			spells[spell_slot].size_ups += diff

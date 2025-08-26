@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="SpellData" load_steps=2 format=3 uid="uid://cys4m2wwjwc46"]
+[gd_resource type="Resource" script_class="SpellData" load_steps=3 format=3 uid="uid://cys4m2wwjwc46"]
 
 [ext_resource type="Script" uid="uid://bxkbqqyepynwh" path="res://spells/scripts/spell_data.gd" id="1_n047p"]
+[ext_resource type="Texture2D" uid="uid://2ko86gdiwobf" path="res://vfx/textures/lightning_icon.png" id="1_y2auf"]
 
 [resource]
 script = ExtResource("1_n047p")
@@ -11,4 +12,5 @@ speed = 2.0
 range = 10.0
 cast_rate = 1.0
 size = 1.0
+icon = ExtResource("1_y2auf")
 metadata/_custom_type_script = "uid://bxkbqqyepynwh"

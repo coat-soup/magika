@@ -24,7 +24,7 @@ signal jump_land
 
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera_pivot = player.camera_pivot
 	camera_rt.remote_path = camera_pivot.get_path()
 	

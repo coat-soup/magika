@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="SpellData" load_steps=2 format=3 uid="uid://6vbctqshr00b"]
+[gd_resource type="Resource" script_class="SpellData" load_steps=3 format=3 uid="uid://6vbctqshr00b"]
 
 [ext_resource type="Script" uid="uid://bxkbqqyepynwh" path="res://spells/scripts/spell_data.gd" id="1_h8eo1"]
+[ext_resource type="Texture2D" uid="uid://1anv1prfx51f" path="res://vfx/textures/fireball_icon.png" id="1_u3gbq"]
 
 [resource]
 script = ExtResource("1_h8eo1")
@@ -11,4 +12,5 @@ speed = 20.0
 range = 30.0
 cast_rate = 1.0
 size = 1.0
+icon = ExtResource("1_u3gbq")
 metadata/_custom_type_script = "uid://bxkbqqyepynwh"

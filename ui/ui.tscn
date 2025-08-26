@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dshmv0kl4f2g"]
+[gd_scene load_steps=9 format=3 uid="uid://dshmv0kl4f2g"]
 
 [ext_resource type="Texture2D" uid="uid://crswhe438gpfo" path="res://ui/textures/cross.png" id="1_nb4k0"]
 [ext_resource type="Script" uid="uid://donj5kybtpc0c" path="res://ui/ui_manager.gd" id="1_wl5ax"]
 [ext_resource type="Texture2D" uid="uid://bit08rsdipp7v" path="res://ui/textures/hit_marker.png" id="2_ks8t7"]
+[ext_resource type="Texture2D" uid="uid://djj1pr8pp2ura" path="res://vfx/textures/spell_organiser_ui.png" id="4_vkava"]
+[ext_resource type="Texture2D" uid="uid://bg21qqi4fml8e" path="res://vfx/textures/circle_outline.png" id="5_tf0e0"]
+[ext_resource type="Texture2D" uid="uid://b0k1nx3b7wh6t" path="res://vfx/textures/circle_full.png" id="6_bo1jx"]
+[ext_resource type="Texture2D" uid="uid://dfpn6cx2d2sf8" path="res://vfx/textures/small_shard_02.png" id="7_bo1jx"]
 
-[node name="UI" type="Control"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bo1jx"]
+radius = 33.3766
+
+[node name="UI" type="Control" node_paths=PackedStringArray("spell_slots")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,12 +20,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_wl5ax")
+spell_slots = [NodePath("SpellBook/SpellSlot"), NodePath("SpellBook/SpellSlot2"), NodePath("SpellBook/SpellSlot3"), NodePath("SpellBook/SpellSlot4")]
 
 [node name="Hud" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 1
 
 [node name="Crosshair" type="TextureRect" parent="Hud"]
@@ -58,5 +68,187 @@ grow_vertical = 2
 rotation = 0.785397
 pivot_offset = Vector2(16, 16)
 texture = ExtResource("2_ks8t7")
+
+[node name="SpellBook" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -476.0
+offset_top = -266.0
+offset_right = 476.0
+offset_bottom = 266.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="SpellBook"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.809457, 0.745032, 0.648534, 1)
+
+[node name="PowerupHolder" type="Control" parent="SpellBook"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SpellCircle" type="TextureRect" parent="SpellBook"]
+modulate = Color(0.279, 0.101, 0, 0.094)
+layout_mode = 0
+offset_left = 55.0
+offset_top = 53.0
+offset_right = 483.0
+offset_bottom = 481.0
+mouse_filter = 2
+texture = ExtResource("4_vkava")
+
+[node name="SpellSlot" type="TextureRect" parent="SpellBook"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 240.0
+offset_top = 108.0
+offset_right = 310.0
+offset_bottom = 178.0
+texture = ExtResource("5_tf0e0")
+expand_mode = 1
+
+[node name="BG" type="TextureRect" parent="SpellBook/SpellSlot"]
+modulate = Color(0.807843, 0.745098, 0.647059, 1)
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+texture = ExtResource("6_bo1jx")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="SpellBook/SpellSlot"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+texture = ExtResource("7_bo1jx")
+expand_mode = 1
+
+[node name="Circle" type="TextureRect" parent="SpellBook/SpellSlot"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+texture = ExtResource("5_tf0e0")
+expand_mode = 1
+
+[node name="Repulsor" type="Area2D" parent="SpellBook/SpellSlot" groups=["ui_repulsor"]]
+position = Vector2(35, 35)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpellBook/SpellSlot/Repulsor"]
+shape = SubResource("CircleShape2D_bo1jx")
+
+[node name="SpellSlot2" type="TextureRect" parent="SpellBook"]
+layout_mode = 0
+offset_left = 365.0
+offset_top = 234.0
+offset_right = 435.0
+offset_bottom = 304.0
+texture = ExtResource("5_tf0e0")
+expand_mode = 1
+
+[node name="BG" type="TextureRect" parent="SpellBook/SpellSlot2"]
+modulate = Color(0.807843, 0.745098, 0.647059, 1)
+offset_right = 70.0
+offset_bottom = 70.0
+texture = ExtResource("6_bo1jx")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="SpellBook/SpellSlot2"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+expand_mode = 1
+
+[node name="Circle" type="TextureRect" parent="SpellBook/SpellSlot2"]
+modulate = Color(0, 0, 0, 1)
+offset_right = 70.0
+offset_bottom = 70.0
+texture = ExtResource("5_tf0e0")
+expand_mode = 1
+
+[node name="Repulsor" type="Area2D" parent="SpellBook/SpellSlot2" groups=["ui_repulsor"]]
+position = Vector2(35, 35)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpellBook/SpellSlot2/Repulsor"]
+shape = SubResource("CircleShape2D_bo1jx")
+
+[node name="SpellSlot3" type="TextureRect" parent="SpellBook"]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 357.0
+offset_right = 305.0
+offset_bottom = 427.0
+texture = ExtResource("5_tf0e0")
+expand_mode = 1
+
+[node name="BG" type="TextureRect" parent="SpellBook/SpellSlot3"]
+modulate = Color(0.807843, 0.745098, 0.647059, 1)
+offset_right = 70.0
+offset_bottom = 70.0
+texture = ExtResource("6_bo1jx")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="SpellBook/SpellSlot3"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+expand_mode = 1
+
+[node name="Circle" type="TextureRect" parent="SpellBook/SpellSlot3"]
+modulate = Color(0, 0, 0, 1)
+offset_right = 70.0
+offset_bottom = 70.0
+texture = ExtResource("5_tf0e0")
+expand_mode = 1
+
+[node name="Repulsor" type="Area2D" parent="SpellBook/SpellSlot3" groups=["ui_repulsor"]]
+position = Vector2(35, 35)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpellBook/SpellSlot3/Repulsor"]
+shape = SubResource("CircleShape2D_bo1jx")
+
+[node name="SpellSlot4" type="TextureRect" parent="SpellBook"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 234.0
+offset_right = 184.0
+offset_bottom = 304.0
+texture = ExtResource("5_tf0e0")
+expand_mode = 1
+
+[node name="BG" type="TextureRect" parent="SpellBook/SpellSlot4"]
+modulate = Color(0.807843, 0.745098, 0.647059, 1)
+offset_right = 70.0
+offset_bottom = 70.0
+texture = ExtResource("6_bo1jx")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="SpellBook/SpellSlot4"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+expand_mode = 1
+
+[node name="Circle" type="TextureRect" parent="SpellBook/SpellSlot4"]
+modulate = Color(0, 0, 0, 1)
+offset_right = 70.0
+offset_bottom = 70.0
+texture = ExtResource("5_tf0e0")
+expand_mode = 1
+
+[node name="Repulsor" type="Area2D" parent="SpellBook/SpellSlot4" groups=["ui_repulsor"]]
+position = Vector2(35, 35)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpellBook/SpellSlot4/Repulsor"]
+shape = SubResource("CircleShape2D_bo1jx")
 
 [node name="UIAudio" type="AudioStreamPlayer" parent="."]

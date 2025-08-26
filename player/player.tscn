@@ -36,7 +36,7 @@ update_scale = false
 [node name="PlayerSpellManager" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, -1, 4.71871e-08, 1.33588, -1.19269)
 script = ExtResource("4_yw30f")
-spells = Array[ExtResource("5_g6k8r")]([ExtResource("6_boad6"), ExtResource("6_rgyib")])
+spells = Array[ExtResource("5_g6k8r")]([ExtResource("6_boad6"), ExtResource("6_rgyib"), null, null])
 metadata/_custom_type_script = "uid://c03v7twr36odm"
 
 [node name="Health" type="Node" parent="."]

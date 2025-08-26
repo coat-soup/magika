@@ -30,6 +30,16 @@ shader_parameter/ColourTex = SubResource("GradientTexture2D_3ag6s")
 shader_parameter/Speed = Vector2(1, 1)
 shader_parameter/AlphaTexture = ExtResource("4_xahu3")
 
+[sub_resource type="Animation" id="Animation_3ag6s"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisualHolder")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
 [sub_resource type="Animation" id="Animation_xahu3"]
 resource_name = "powerup_idle"
 length = 3.0
@@ -41,16 +51,6 @@ tracks/0/path = NodePath("VisualHolder")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1.5, 1, 0, 0.2, 0, 3, 1, 0, 0, 0)
-
-[sub_resource type="Animation" id="Animation_3ag6s"]
-length = 0.001
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VisualHolder")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ag6s"]
 _data = {
