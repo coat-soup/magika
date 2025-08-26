@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://ctblf0htgofd7"]
+
+[ext_resource type="Script" uid="uid://ddu0eioyh1u1u" path="res://spells/scripts/powerup.gd" id="1_e5xcp"]
+[ext_resource type="ArrayMesh" uid="uid://oxd8jdnelik2" path="res://vfx/models/teardrop.obj" id="2_juuhg"]
+[ext_resource type="Shader" uid="uid://dhilnaew3cgyr" path="res://vfx/shaders/texture_scroll.tres" id="3_ey1wc"]
+[ext_resource type="Texture2D" uid="uid://cx0orf2faa2u2" path="res://vfx/noise/Swirl_03-256x256.png" id="4_xahu3"]
+[ext_resource type="AudioStream" uid="uid://dpmeikbcmcjef" path="res://sfx/powerup_shimmer.wav" id="5_3ag6s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3ag6s"]
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_juuhg"]
+albedo_color = Color(0, 0.877, 2, 1)
+emission_enabled = true
+emission = Color(0.336197, 0.835092, 1, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="Gradient" id="Gradient_xahu3"]
+offsets = PackedFloat32Array(0.229508, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3ag6s"]
+gradient = SubResource("Gradient_xahu3")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ey1wc"]
+render_priority = 0
+shader = ExtResource("3_ey1wc")
+shader_parameter/ColourTex = SubResource("GradientTexture2D_3ag6s")
+shader_parameter/Speed = Vector2(1, 1)
+shader_parameter/AlphaTexture = ExtResource("4_xahu3")
+
+[sub_resource type="Animation" id="Animation_xahu3"]
+resource_name = "powerup_idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisualHolder")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1.5, 1, 0, 0.2, 0, 3, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_3ag6s"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisualHolder")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ag6s"]
+_data = {
+&"RESET": SubResource("Animation_3ag6s"),
+&"powerup_idle": SubResource("Animation_xahu3")
+}
+
+[node name="Powerup" type="Node3D"]
+script = ExtResource("1_e5xcp")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_3ag6s")
+
+[node name="VisualHolder" type="Node3D" parent="."]
+
+[node name="Sphere" type="CSGSphere3D" parent="VisualHolder"]
+radius = 0.1
+material = SubResource("StandardMaterial3D_juuhg")
+
+[node name="Teardrop" type="MeshInstance3D" parent="VisualHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0516192, 0)
+cast_shadow = 0
+mesh = ExtResource("2_juuhg")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ey1wc")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_3ag6s")
+unit_size = 15.0
+autoplay = true
+max_distance = 15.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3ag6s")
+}
+autoplay = "powerup_idle"

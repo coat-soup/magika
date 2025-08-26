@@ -14,6 +14,7 @@ var distance_covered : float
 
 var active := false
 
+
 func activate():
 	velocity = global_basis.z.normalized() * spell_data.speed
 	
@@ -42,9 +43,9 @@ func handle_collision():
 		var health : Health = shape_cast.get_collider(0).get_node_or_null("Health") as Health
 		if health:
 			print("hit health thing. sending damage")
-			health.take_damage(spell_data.power)
+			health.take_damage(spell_data.power, 1)
 	else:
-		Explosion.explode_at_point(self, shape_cast.get_collision_point(0), spell_data.size, spell_data.power, impact_particles)
+		Explosion.explode_at_point(self, shape_cast.get_collision_point(0), spell_data.size, spell_data.power, 1, impact_particles)
 	
 	queue_free()
 

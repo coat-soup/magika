@@ -35,4 +35,4 @@ func do_thing_at(pos : Vector3):
 	
 	$LightningSFX.pitch_scale = randf_range(0.8, 1.2)
 	$LightningSFX.play()
-	Explosion.explode_at_point(self, pos, spell_data.size, spell_data.power)
+	Explosion.explode_at_point(self, pos, spell_data.size, spell_data.power, 1)

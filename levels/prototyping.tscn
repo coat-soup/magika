@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvj1lrvtjo8hh"]
+[gd_scene load_steps=11 format=3 uid="uid://bvj1lrvtjo8hh"]
 
 [ext_resource type="PackedScene" uid="uid://v17ctq8q57wy" path="res://player/player.tscn" id="1_fim04"]
 [ext_resource type="Script" uid="uid://u3177tjci8s6" path="res://levels/game_manager.gd" id="1_jh6tj"]
 [ext_resource type="PackedScene" uid="uid://dshmv0kl4f2g" path="res://ui/ui.tscn" id="2_o6pmk"]
 [ext_resource type="Shader" uid="uid://dohas0kib6yu1" path="res://levels/prototype_grid.gdshader" id="2_t1no0"]
 [ext_resource type="PackedScene" uid="uid://dom3ahxd24ayv" path="res://enemies/enemy_test.tscn" id="4_nb50o"]
+[ext_resource type="PackedScene" uid="uid://ctblf0htgofd7" path="res://spells/scenes/powerup.tscn" id="6_km4ku"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fim04"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -43,8 +44,11 @@ shader_parameter/use_inside_uv = false
 shader_parameter/use_albedo_color = false
 shader_parameter/albedo_alpha = 0.5
 
-[node name="Prototyping" type="Node3D"]
+[node name="Prototyping" type="Node3D" node_paths=PackedStringArray("player", "camera", "ui")]
 script = ExtResource("1_jh6tj")
+player = NodePath("Player")
+camera = NodePath("PlayerCamera/Camera3D")
+ui = NodePath("UI")
 
 [node name="UI" parent="." instance=ExtResource("2_o6pmk")]
 
@@ -73,8 +77,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.491072, 3.10229)
 [node name="AudioListener3D" type="AudioListener3D" parent="PlayerCamera/Camera3D"]
 current = true
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("4_nb50o")]
+[node name="EnemyTest" parent="." instance=ExtResource("4_nb50o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4806, 1.5, -4.8798)
 
-[node name="CharacterBody3D2" parent="." instance=ExtResource("4_nb50o")]
+[node name="EnemyTest2" parent="." instance=ExtResource("4_nb50o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47855, 1.5, -8.61318)
+
+[node name="Powerup" parent="." instance=ExtResource("6_km4ku")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45783, 0.967343, -0.620559)
+
+[node name="Powerup2" parent="." instance=ExtResource("6_km4ku")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.08965, 0.967343, -1.91276)
+
+[node name="Powerup3" parent="." instance=ExtResource("6_km4ku")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67857, 0.967343, -2.7717)

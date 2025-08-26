@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dshmv0kl4f2g"]
+[gd_scene load_steps=4 format=3 uid="uid://dshmv0kl4f2g"]
 
 [ext_resource type="Texture2D" uid="uid://crswhe438gpfo" path="res://ui/textures/cross.png" id="1_nb4k0"]
+[ext_resource type="Script" uid="uid://donj5kybtpc0c" path="res://ui/ui_manager.gd" id="1_wl5ax"]
+[ext_resource type="Texture2D" uid="uid://bit08rsdipp7v" path="res://ui/textures/hit_marker.png" id="2_ks8t7"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -10,8 +12,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("1_wl5ax")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Hud" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+
+[node name="Crosshair" type="TextureRect" parent="Hud"]
 modulate = Color(1, 1, 1, 0.458824)
 texture_filter = 1
 layout_mode = 1
@@ -27,4 +37,26 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(16, 16)
 texture = ExtResource("1_nb4k0")
+
+[node name="HitMarker" type="TextureRect" parent="Hud"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785397
+pivot_offset = Vector2(16, 16)
+texture = ExtResource("2_ks8t7")
+
+[node name="UIAudio" type="AudioStreamPlayer" parent="."]

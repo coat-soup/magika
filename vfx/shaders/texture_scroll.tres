@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=14 format=3 uid="uid://dhilnaew3cgyr"]
+[gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://dhilnaew3cgyr"]
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_hnnvx"]
 
@@ -17,6 +17,11 @@ input_name = "color"
 operator = 2
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_hrnh6"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_hnnvx"]
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_tr2ro"]
 operator = 2
 
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_xkeam"]
@@ -98,8 +103,22 @@ void fragment() {
 	float n_out4p4 = n_out4p0.a;
 
 
+	vec3 n_out17p0;
+// ColorFunc:17
+	{
+		vec3 c = vec3(n_out4p0.xyz);
+		float max1 = max(c.r, c.g);
+		float max2 = max(max1, c.b);
+		n_out17p0 = vec3(max2, max2, max2);
+	}
+
+
+// FloatOp:18
+	float n_out18p0 = n_out17p0.x * n_out4p4;
+
+
 // FloatOp:15
-	float n_out15p0 = n_out13p4 * n_out4p4;
+	float n_out15p0 = n_out13p4 * n_out18p0;
 
 
 // FloatOp:16
@@ -113,7 +132,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-666.183, -141.411)
+graph_offset = Vector2(-618.476, 233.747)
 modes/cull = 2
 flags/unshaded = true
 flags/shadows_disabled = true
@@ -121,21 +140,21 @@ flags/ambient_light_disabled = true
 flags/fog_disabled = true
 nodes/fragment/0/position = Vector2(600, 160)
 nodes/fragment/3/node = SubResource("VisualShaderNodeTexture2DParameter_xkeam")
-nodes/fragment/3/position = Vector2(-660, 580)
+nodes/fragment/3/position = Vector2(-1200, 620)
 nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_lj7jg")
-nodes/fragment/4/position = Vector2(-180, 440)
+nodes/fragment/4/position = Vector2(-720, 480)
 nodes/fragment/5/node = SubResource("VisualShaderNodeUVFunc_4gynv")
-nodes/fragment/5/position = Vector2(-640, 340)
+nodes/fragment/5/position = Vector2(-1180, 380)
 nodes/fragment/6/node = SubResource("VisualShaderNodeInput_i6pks")
-nodes/fragment/6/position = Vector2(-1880, 260)
+nodes/fragment/6/position = Vector2(-2420, 300)
 nodes/fragment/7/node = SubResource("VisualShaderNodeVectorCompose_0r0f0")
-nodes/fragment/7/position = Vector2(-880, 340)
+nodes/fragment/7/position = Vector2(-1420, 380)
 nodes/fragment/8/node = SubResource("VisualShaderNodeVec2Parameter_avxyh")
-nodes/fragment/8/position = Vector2(-1880, 400)
+nodes/fragment/8/position = Vector2(-2420, 440)
 nodes/fragment/9/node = SubResource("VisualShaderNodeVectorOp_lh7lf")
-nodes/fragment/9/position = Vector2(-1460, 300)
+nodes/fragment/9/position = Vector2(-2000, 340)
 nodes/fragment/10/node = SubResource("VisualShaderNodeVectorDecompose_hnnvx")
-nodes/fragment/10/position = Vector2(-1180, 340)
+nodes/fragment/10/position = Vector2(-1720, 380)
 nodes/fragment/11/node = SubResource("VisualShaderNodeTexture2DParameter_hrnh6")
 nodes/fragment/11/position = Vector2(-1020, -160)
 nodes/fragment/12/node = SubResource("VisualShaderNodeTexture_tr2ro")
@@ -146,4 +165,8 @@ nodes/fragment/15/node = SubResource("VisualShaderNodeFloatOp_hnnvx")
 nodes/fragment/15/position = Vector2(80, 280)
 nodes/fragment/16/node = SubResource("VisualShaderNodeFloatOp_hrnh6")
 nodes/fragment/16/position = Vector2(360, 200)
-nodes/fragment/connections = PackedInt32Array(3, 0, 4, 2, 7, 0, 5, 2, 6, 0, 9, 0, 8, 0, 9, 1, 9, 0, 10, 0, 10, 0, 7, 0, 10, 1, 7, 1, 11, 0, 12, 2, 5, 0, 4, 0, 12, 0, 0, 0, 13, 4, 15, 0, 4, 4, 15, 1, 15, 0, 16, 1, 12, 4, 16, 0, 16, 0, 0, 1)
+nodes/fragment/17/node = SubResource("VisualShaderNodeColorFunc_hnnvx")
+nodes/fragment/17/position = Vector2(-500, 500)
+nodes/fragment/18/node = SubResource("VisualShaderNodeFloatOp_tr2ro")
+nodes/fragment/18/position = Vector2(-260, 460)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 2, 7, 0, 5, 2, 6, 0, 9, 0, 8, 0, 9, 1, 9, 0, 10, 0, 10, 0, 7, 0, 10, 1, 7, 1, 11, 0, 12, 2, 5, 0, 4, 0, 12, 0, 0, 0, 13, 4, 15, 0, 15, 0, 16, 1, 12, 4, 16, 0, 16, 0, 0, 1, 4, 0, 17, 0, 17, 0, 18, 0, 4, 4, 18, 1, 18, 0, 15, 1)

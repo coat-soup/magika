@@ -8,10 +8,12 @@ signal died
 @onready var cur_health : int = max_health
 
 
-func take_damage(amount : int):
+func take_damage(amount : int, source : int): #source: 0 is system, 1 is player, 2 is enemy
 	cur_health = max(0, cur_health - amount)
 	
-	print("taking %d damage, health now %d/%d" % [amount, cur_health, max_health])
+	print("%s took %ddmg -> %d/%dhp" % [get_parent().name, amount, cur_health, max_health])
+	
+	if source == 1 and get_parent() != Global.player: Global.ui.flash_hitmarker()
 	
 	took_damage.emit()
 	

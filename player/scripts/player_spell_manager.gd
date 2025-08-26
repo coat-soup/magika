@@ -8,6 +8,8 @@ var camera : Node3D
 
 const SPELL_CIRCLE_FX = preload("res://vfx/scenes/spell_circle_fx.tscn")
 
+var powerups : int
+
 
 func _ready() -> void:
 	camera = (get_parent_node_3d() as PlayerManager).camera_pivot.get_child(0)
@@ -59,3 +61,20 @@ func get_camera_ray_pos(dist) -> Vector3:
 	var query = PhysicsRayQueryParameters3D.create(camera.global_position, end_pos, 0b1)
 	var result = space_state.intersect_ray(query)
 	return result.position if result else end_pos
+
+
+func get_powerup(type : int):
+	match type:
+		Powerup.UpgradeType.POWER:
+			pass
+		Powerup.UpgradeType.SPEED:
+			pass
+		Powerup.UpgradeType.RANGE:
+			pass
+		Powerup.UpgradeType.CAST_RATE:
+			pass
+		Powerup.UpgradeType.SIZE:
+			pass
+	
+	# palceholder
+	powerups += 1

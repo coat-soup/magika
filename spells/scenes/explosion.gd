@@ -6,18 +6,18 @@ class_name Explosion
 @onready var col: CollisionShape3D = $Area3D/CollisionShape3D
 
 
-static func explode_at_point(source : Node3D, pos : Vector3, radius : float, damage : float, particles : PackedScene = null):
+static func explode_at_point(source_node : Node3D, pos : Vector3, radius : float, damage : float, source_id : int = 0, particles : PackedScene = null):
 	var exp = preload("res://spells/scenes/explosion.tscn").instantiate() as Explosion
 	exp.particles_scene = particles
-	source.get_tree().root.add_child(exp)
+	source_node.get_tree().root.add_child(exp)
 	exp.global_position = pos
-	exp.explode(radius, damage)
+	exp.explode(radius, damage, source_id)
 	
-	await source.get_tree().create_timer(3.0).timeout
+	await source_node.get_tree().create_timer(3.0).timeout
 	exp.queue_free()
 
 
-func explode(radius, damage):
+func explode(radius, damage, source = 0):
 	if particles_scene:
 		var p = particles_scene.instantiate() as Node3D
 		get_tree().root.add_child(p)
@@ -29,9 +29,7 @@ func explode(radius, damage):
 	
 	await get_tree().create_timer(0.1).timeout
 	
-	print("bodies: ", area.get_overlapping_bodies())
-	
 	for body in area.get_overlapping_bodies():
 		var health : Health = body.get_node_or_null("Health") as Health
 		if health:
-			health.take_damage(damage)
+			health.take_damage(damage, source)
