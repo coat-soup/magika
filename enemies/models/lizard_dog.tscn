@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://jkff41dckob7"]
+[gd_scene load_steps=14 format=3 uid="uid://jkff41dckob7"]
 
 [ext_resource type="PackedScene" uid="uid://bgb2xrpeyndwg" path="res://enemies/models/lizard_dog.glb" id="1_qfeps"]
 [ext_resource type="Texture2D" uid="uid://3y0n1iwnej2b" path="res://enemies/textures/lizard_dog.png" id="2_1rsmu"]
+[ext_resource type="Script" uid="uid://b1ysd8m75sqac" path="res://enemies/models/enemy_skeleton_controller.gd" id="2_qwepj"]
 [ext_resource type="Script" uid="uid://dki43vwwc5g84" path="res://addons/jigglebones/jigglebone.gd" id="3_qdm1w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qdm1w"]
@@ -19,6 +20,9 @@ texture_filter = 0
 cull_mode = 2
 albedo_texture = ExtResource("2_1rsmu")
 texture_filter = 0
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_kuwy2"]
+filters = ["", "Armature/Skeleton3D:BackFoot.L", "Armature/Skeleton3D:BackFoot.R", "Armature/Skeleton3D:BackFootIK.L", "Armature/Skeleton3D:BackFootIK.R", "Armature/Skeleton3D:BackLegLower.L", "Armature/Skeleton3D:BackLegLower.R", "Armature/Skeleton3D:BackLegUpper.L", "Armature/Skeleton3D:BackLegUpper.R", "Armature/Skeleton3D:FrontFoot.L", "Armature/Skeleton3D:FrontFoot.R", "Armature/Skeleton3D:FrontFootIK.L", "Armature/Skeleton3D:FrontFootIK.R", "Armature/Skeleton3D:FrontLegLower.L", "Armature/Skeleton3D:FrontLegLower.R", "Armature/Skeleton3D:FrontLegUpper.L", "Armature/Skeleton3D:FrontLegUpper.R", "Armature/Skeleton3D:Head", "Armature/Skeleton3D:Hip", "Armature/Skeleton3D:Neck", "Armature/Skeleton3D:Tail", "Armature/Skeleton3D:Torso"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5wf06"]
 animation = &"Attack"
@@ -41,44 +45,44 @@ blend_point_1/node = SubResource("AnimationNodeAnimation_qwepj")
 blend_point_1/pos = 1.0
 min_space = 0.0
 
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_kuwy2"]
-
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5wf06"]
-graph_offset = Vector2(-941, 71)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_5wf06")
-nodes/Animation/position = Vector2(-220, 260)
-nodes/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_qwepj")
-nodes/BlendSpace1D/position = Vector2(-120, 80)
-nodes/OneShot/node = SubResource("AnimationNodeOneShot_kuwy2")
-nodes/OneShot/position = Vector2(100, 140)
-node_connections = [&"OneShot", 0, &"BlendSpace1D", &"OneShot", 1, &"Animation", &"output", 0, &"OneShot"]
+graph_offset = Vector2(-695, -43)
+nodes/Attack/node = SubResource("AnimationNodeOneShot_kuwy2")
+nodes/Attack/position = Vector2(100, 140)
+nodes/AttackAnim/node = SubResource("AnimationNodeAnimation_5wf06")
+nodes/AttackAnim/position = Vector2(-220, 260)
+nodes/MoveBlend/node = SubResource("AnimationNodeBlendSpace1D_qwepj")
+nodes/MoveBlend/position = Vector2(-200, 40)
+nodes/output/position = Vector2(440, 140)
+node_connections = [&"Attack", 0, &"MoveBlend", &"Attack", 1, &"AttackAnim", &"output", 0, &"Attack"]
 
 [node name="lizard_dog" instance=ExtResource("1_qfeps")]
+script = ExtResource("2_qwepj")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(1.84561e-09, -0.000476632, -0.0941669)
-bones/1/rotation = Quaternion(2.1911e-09, 5.46899e-08, 0.106922, 0.994267)
-bones/3/rotation = Quaternion(0.0173539, -0.0143603, -0.611719, 0.790754)
-bones/4/rotation = Quaternion(-4.48759e-08, 1.03812e-07, 0.0679103, 0.997691)
-bones/5/rotation = Quaternion(0.0197018, 0.0355923, 0.899137, 0.435772)
-bones/6/rotation = Quaternion(-0.00262559, 0.0122241, 0.00173157, 0.99992)
-bones/7/rotation = Quaternion(0.0534039, 0.0571431, -0.825694, 0.55867)
-bones/8/rotation = Quaternion(-0.129841, -0.169743, 0.679925, 0.701449)
-bones/9/rotation = Quaternion(0.357535, 0.00725984, 0.0679907, 0.931393)
-bones/10/rotation = Quaternion(-0.0534041, -0.0571431, -0.825694, 0.55867)
-bones/11/rotation = Quaternion(-5.17921e-08, -2.32127e-09, 0.999834, -0.0182349)
-bones/13/rotation = Quaternion(0.0106348, 0.0126922, 0.687374, 0.726115)
-bones/14/rotation = Quaternion(-0.00209333, -0.00140315, 0.00212527, 0.999995)
-bones/15/rotation = Quaternion(0.0357478, 0.0402474, -0.817954, 0.57276)
-bones/16/rotation = Quaternion(-0.0173665, -0.0095885, 0.897784, 0.439989)
-bones/17/rotation = Quaternion(0.00123268, -0.0147938, 0.00256875, 0.999887)
-bones/18/rotation = Quaternion(-0.0357484, -0.0402471, -0.817954, 0.57276)
-bones/19/position = Vector3(0.216407, -0.406164, 0.689254)
-bones/19/rotation = Quaternion(0.466686, -0.531229, 0.531229, -0.466686)
-bones/20/position = Vector3(-0.216407, -0.40443, 1.01356)
-bones/21/position = Vector3(0.160315, -0.420956, 0.161076)
-bones/21/rotation = Quaternion(0.477692, -0.521354, 0.521354, -0.477692)
-bones/22/position = Vector3(-0.160315, -0.400318, -0.191515)
+bones/0/position = Vector3(1.56616e-08, 0.0629203, -0.125853)
+bones/1/rotation = Quaternion(8.08047e-09, 1.60823e-07, 0.138362, 0.990382)
+bones/3/rotation = Quaternion(1.21853e-07, 6.15299e-08, -0.572162, 0.820141)
+bones/4/rotation = Quaternion(-2.34409e-07, 1.18612e-07, 0.28203, 0.959406)
+bones/5/rotation = Quaternion(0.101566, 0.205532, 0.812754, 0.535604)
+bones/6/rotation = Quaternion(-0.387468, 0.0105709, 0.229927, 0.892687)
+bones/7/rotation = Quaternion(0.0208685, 0.0741056, -0.664426, 0.743378)
+bones/8/rotation = Quaternion(-0.10974, -0.200126, 0.811688, 0.537652)
+bones/9/rotation = Quaternion(0.385126, -0.0195588, 0.233829, 0.892535)
+bones/10/rotation = Quaternion(-0.0208716, -0.0741057, -0.664426, 0.743378)
+bones/11/rotation = Quaternion(-0.00536767, 0.00448386, 0.999205, -0.0392362)
+bones/14/rotation = Quaternion(0.044315, 0.0614046, 0.815093, 0.57436)
+bones/15/rotation = Quaternion(-0.13803, 0.0125, 0.255479, 0.956829)
+bones/16/rotation = Quaternion(0.018173, 0.0501678, -0.652275, 0.756102)
+bones/17/rotation = Quaternion(-0.0443145, -0.0614045, 0.815093, 0.57436)
+bones/18/rotation = Quaternion(0.13803, -0.0125002, 0.255478, 0.956829)
+bones/19/rotation = Quaternion(-0.0181732, -0.0501674, -0.652275, 0.756102)
+bones/20/position = Vector3(0.216407, -0.328416, 0.669284)
+bones/20/rotation = Quaternion(0.466686, -0.531229, 0.531229, -0.466686)
+bones/21/position = Vector3(-0.216407, -0.328416, 0.669284)
+bones/22/position = Vector3(0.160315, -0.328416, -0.1688)
+bones/22/rotation = Quaternion(0.477692, -0.521354, 0.521354, -0.477692)
+bones/23/position = Vector3(-0.160315, -0.328416, -0.1688)
 
 [node name="Cube" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_qdm1w")
@@ -93,18 +97,19 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1rsmu")
 surface_material_override/0 = SubResource("StandardMaterial3D_1rsmu")
 
 [node name="JiggleTail" type="Node3D" parent="Armature/Skeleton3D" index="4"]
-transform = Transform3D(5.96047e-08, -1.19209e-07, 1, -0.998061, -0.0622611, 0, 0.0622612, -0.99806, 0, -1.50628e-07, 0.0761246, -1.16688)
+transform = Transform3D(-0.0100324, 0.00974494, 0.999903, -0.988381, -0.151763, -0.00843785, 0.151666, -0.988369, 0.0111543, 0.0103924, 0.312956, -1.65319)
 top_level = true
 script = ExtResource("3_qdm1w")
-bone_name = "Tail"
+bone_name = "TailTop"
 forward_axis = 1
 metadata/_custom_type_script = "uid://dki43vwwc5g84"
 
 [node name="JiggleTail2" type="Node3D" parent="Armature/Skeleton3D" index="5"]
-transform = Transform3D(1.19209e-07, -1.78814e-07, 1, -0.998804, 0.048903, 5.96047e-08, -0.048903, -0.998803, -1.19209e-07, -2.07785e-07, 0.0473422, -1.50731)
+transform = Transform3D(-0.00968051, 0.010093, 0.999903, -0.993136, -0.116659, -0.00843749, 0.116563, -0.993121, 0.0111531, 0.0138602, 0.299551, -1.9744)
 top_level = true
 script = ExtResource("3_qdm1w")
 bone_name = "TailTip"
+stiffness = 0.2
 gravity = Vector3(0, 0, 0)
 forward_axis = 1
 metadata/_custom_type_script = "uid://dki43vwwc5g84"
@@ -112,7 +117,7 @@ metadata/_custom_type_script = "uid://dki43vwwc5g84"
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = SubResource("AnimationNodeBlendTree_5wf06")
 anim_player = NodePath("../AnimationPlayer")
-parameters/BlendSpace1D/blend_position = 1.0
-parameters/OneShot/active = false
-parameters/OneShot/internal_active = false
-parameters/OneShot/request = 0
+parameters/Attack/active = false
+parameters/Attack/internal_active = false
+parameters/Attack/request = 0
+parameters/MoveBlend/blend_position = 1.0

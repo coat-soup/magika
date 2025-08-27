@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b0k1nx3b7wh6t" path="res://vfx/textures/circle_full.png" id="2_wssn8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wssn8"]
-radius = 44.3847
+radius = 30.0167
 
 [node name="Control" type="Control"]
 layout_mode = 3

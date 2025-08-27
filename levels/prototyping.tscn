@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvj1lrvtjo8hh"]
+[gd_scene load_steps=13 format=3 uid="uid://bvj1lrvtjo8hh"]
 
 [ext_resource type="PackedScene" uid="uid://v17ctq8q57wy" path="res://player/player.tscn" id="1_fim04"]
 [ext_resource type="Script" uid="uid://u3177tjci8s6" path="res://levels/game_manager.gd" id="1_jh6tj"]
@@ -20,6 +20,10 @@ background_mode = 2
 sky = SubResource("Sky_jh6tj")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_svve8"]
+vertices = PackedVector3Array(-24.5, 1, -24.5, -24.5, 1, 24.5, 24.5, 1, 24.5, 24.5, 1, -24.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nb50o"]
 render_priority = 0
@@ -60,14 +64,17 @@ environment = SubResource("Environment_t1no0")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Floor" type="CSGBox3D" parent="."]
-use_collision = true
-size = Vector3(50, 1, 50)
-material = SubResource("ShaderMaterial_nb50o")
-
 [node name="Player" parent="." node_paths=PackedStringArray("camera_pivot") instance=ExtResource("1_fim04")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131198, 0.807743, -0.113974)
 camera_pivot = NodePath("../PlayerCamera")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_svve8")
+
+[node name="Floor" type="CSGBox3D" parent="NavigationRegion3D"]
+use_collision = true
+size = Vector3(50, 1, 50)
+material = SubResource("ShaderMaterial_nb50o")
 
 [node name="PlayerCamera" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32203, 0)
@@ -118,4 +125,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67857, 0.967343, -2.7717)
 type = 4
 
 [node name="LizardDogEnemy" parent="." instance=ExtResource("7_svve8")]
-transform = Transform3D(0.804852, 0, 0.593475, 0, 1, 0, -0.593475, 0, 0.804852, 3.15898, 0.712428, 6.49016)
+transform = Transform3D(0.804852, 0, 0.593475, 0, 1, 0, -0.593475, 0, 0.804852, 3.15898, 6.40423, 6.49016)

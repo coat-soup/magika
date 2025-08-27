@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dom3ahxd24ayv"]
 
 [ext_resource type="Script" uid="uid://c51uewr0gwe3k" path="res://system/health.gd" id="1_ikrij"]
-[ext_resource type="Script" uid="uid://cp5aafvmsg6ei" path="res://enemies/enemy.gd" id="1_jrvf6"]
+[ext_resource type="Script" uid="uid://cp5aafvmsg6ei" path="res://enemies/scripts/enemy.gd" id="1_jrvf6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xpx2r"]
 size = Vector3(1, 2, 1)

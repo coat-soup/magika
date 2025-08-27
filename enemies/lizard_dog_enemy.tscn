@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpa087hsvmopa"]
+[gd_scene load_steps=7 format=3 uid="uid://dpa087hsvmopa"]
 
-[ext_resource type="Script" uid="uid://cp5aafvmsg6ei" path="res://enemies/enemy.gd" id="1_orpr5"]
+[ext_resource type="Script" uid="uid://cg6qe0xc7l6em" path="res://enemies/scripts/walking_enemy.gd" id="1_orpr5"]
+[ext_resource type="PackedScene" uid="uid://bpcq3o7hdiof" path="res://enemies/attacks/enemy_leap_attack.tscn" id="2_6db5e"]
 [ext_resource type="PackedScene" uid="uid://jkff41dckob7" path="res://enemies/models/lizard_dog.tscn" id="2_ayl4e"]
 [ext_resource type="Script" uid="uid://c51uewr0gwe3k" path="res://system/health.gd" id="3_6db5e"]
 
@@ -14,9 +15,12 @@ height = 0.813605
 
 [node name="LizardDogEnemy" type="CharacterBody3D" node_paths=PackedStringArray("health")]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 3
 script = ExtResource("1_orpr5")
 health = NodePath("Health")
+speed = 2.0
+attack_range = 3.0
+attack_prefab = ExtResource("2_6db5e")
 
 [node name="BodyCol" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.394937, -0.1157)
@@ -31,3 +35,5 @@ shape = SubResource("CapsuleShape3D_avn0a")
 [node name="Health" type="Node" parent="."]
 script = ExtResource("3_6db5e")
 metadata/_custom_type_script = "uid://c51uewr0gwe3k"
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

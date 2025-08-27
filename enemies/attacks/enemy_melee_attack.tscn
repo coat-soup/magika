@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b24p4hd3ev8wu"]
+
+[ext_resource type="Script" uid="uid://dgtpml4e2lf6q" path="res://enemies/scripts/enemy_melee_attack.gd" id="1_vnqf2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vnqf2"]
+height = 1.33529
+
+[node name="EnemyMeleeAttack" type="Node3D"]
+script = ExtResource("1_vnqf2")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.659141)
+shape = SubResource("CapsuleShape3D_vnqf2")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
