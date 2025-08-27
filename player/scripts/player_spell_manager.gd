@@ -26,7 +26,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("attack"): try_cast_spell(cur_spell)
+	if Input.is_action_pressed("attack") and not Global.ui.spellbook_active: try_cast_spell(cur_spell)
 	
 	for i in range(len(cooldowns)):
 		if cooldowns[i] > 0:

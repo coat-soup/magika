@@ -157,6 +157,7 @@ expand_mode = 1
 
 [node name="BG" type="TextureRect" parent="SpellBook/SpellSlot2"]
 modulate = Color(0.807843, 0.745098, 0.647059, 1)
+layout_mode = 0
 offset_right = 70.0
 offset_bottom = 70.0
 texture = ExtResource("6_bo1jx")
@@ -170,6 +171,7 @@ expand_mode = 1
 
 [node name="Circle" type="TextureRect" parent="SpellBook/SpellSlot2"]
 modulate = Color(0, 0, 0, 1)
+layout_mode = 0
 offset_right = 70.0
 offset_bottom = 70.0
 texture = ExtResource("5_tf0e0")
@@ -192,6 +194,7 @@ expand_mode = 1
 
 [node name="BG" type="TextureRect" parent="SpellBook/SpellSlot3"]
 modulate = Color(0.807843, 0.745098, 0.647059, 1)
+layout_mode = 0
 offset_right = 70.0
 offset_bottom = 70.0
 texture = ExtResource("6_bo1jx")
@@ -205,6 +208,7 @@ expand_mode = 1
 
 [node name="Circle" type="TextureRect" parent="SpellBook/SpellSlot3"]
 modulate = Color(0, 0, 0, 1)
+layout_mode = 0
 offset_right = 70.0
 offset_bottom = 70.0
 texture = ExtResource("5_tf0e0")
@@ -227,6 +231,7 @@ expand_mode = 1
 
 [node name="BG" type="TextureRect" parent="SpellBook/SpellSlot4"]
 modulate = Color(0.807843, 0.745098, 0.647059, 1)
+layout_mode = 0
 offset_right = 70.0
 offset_bottom = 70.0
 texture = ExtResource("6_bo1jx")
@@ -240,6 +245,7 @@ expand_mode = 1
 
 [node name="Circle" type="TextureRect" parent="SpellBook/SpellSlot4"]
 modulate = Color(0, 0, 0, 1)
+layout_mode = 0
 offset_right = 70.0
 offset_bottom = 70.0
 texture = ExtResource("5_tf0e0")
