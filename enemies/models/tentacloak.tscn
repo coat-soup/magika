@@ -1,0 +1,292 @@
+[gd_scene load_steps=14 format=3 uid="uid://b3ih45nm3u1lq"]
+
+[ext_resource type="PackedScene" uid="uid://bnswb0b7ja2l7" path="res://enemies/models/tentacloak.glb" id="1_fyncp"]
+[ext_resource type="Texture2D" uid="uid://do0yiop1eacju" path="res://enemies/textures/tentacloak.png" id="2_1lrhp"]
+[ext_resource type="Script" uid="uid://b1ysd8m75sqac" path="res://enemies/models/enemy_skeleton_controller.gd" id="2_gkscc"]
+[ext_resource type="Texture2D" uid="uid://3y0n1iwnej2b" path="res://enemies/textures/lizard_dog.png" id="3_40q5u"]
+[ext_resource type="Script" uid="uid://dki43vwwc5g84" path="res://addons/jigglebones/jigglebone.gd" id="4_6vvxk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gkscc"]
+cull_mode = 2
+albedo_texture = ExtResource("2_1lrhp")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40q5u"]
+albedo_texture = ExtResource("2_1lrhp")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6vvxk"]
+albedo_texture = ExtResource("3_40q5u")
+emission_enabled = true
+emission = Color(0.325438, 0, 0.0268873, 1)
+emission_energy_multiplier = 5.61
+texture_filter = 0
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_gkscc"]
+filters = ["Armature/Skeleton3D:Bone"]
+fadein_time = 0.2
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ydj2"]
+animation = &"Attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7d3wy"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_buas8"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_7d3wy")
+blend_point_0/pos = 0.0
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6plm2"]
+graph_offset = Vector2(-348.054, -86.5845)
+nodes/Attack/node = SubResource("AnimationNodeOneShot_gkscc")
+nodes/Attack/position = Vector2(360, 180)
+nodes/AttackAnim/node = SubResource("AnimationNodeAnimation_4ydj2")
+nodes/AttackAnim/position = Vector2(60, 320)
+nodes/MoveBlend/node = SubResource("AnimationNodeBlendSpace1D_buas8")
+nodes/MoveBlend/position = Vector2(80, 80)
+nodes/output/position = Vector2(580, 200)
+node_connections = [&"Attack", 0, &"MoveBlend", &"Attack", 1, &"AttackAnim", &"output", 0, &"Attack"]
+
+[node name="tentacloak" instance=ExtResource("1_fyncp")]
+script = ExtResource("2_gkscc")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(-1.51882e-19, -0.0977702, 4.08173e-09)
+bones/20/position = Vector3(-0.323887, 0.654732, 0.203299)
+bones/20/rotation = Quaternion(0.90672, -0.0398959, 0.0184554, 0.419435)
+bones/21/rotation = Quaternion(-0.696241, 0.0306349, -0.0315248, 0.716461)
+bones/23/position = Vector3(0.179197, 0.449725, 0.412576)
+bones/23/rotation = Quaternion(0.900734, 0.0618283, -0.0291417, 0.428961)
+bones/24/rotation = Quaternion(-0.687239, -0.047282, 0.0493595, 0.723209)
+
+[node name="Cube" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_gkscc")
+
+[node name="Cube_001" parent="Armature/Skeleton3D" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_40q5u")
+
+[node name="Cube_002" parent="Armature/Skeleton3D" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_40q5u")
+
+[node name="Cube_003" parent="Armature/Skeleton3D" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_40q5u")
+
+[node name="Cube_004" parent="Armature/Skeleton3D" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_40q5u")
+
+[node name="Cube_005" parent="Armature/Skeleton3D" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_40q5u")
+
+[node name="Cube_006" parent="Armature/Skeleton3D" index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_40q5u")
+
+[node name="Cube_007" parent="Armature/Skeleton3D" index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_40q5u")
+
+[node name="Cube_008" parent="Armature/Skeleton3D" index="8"]
+surface_material_override/0 = SubResource("StandardMaterial3D_40q5u")
+
+[node name="Cube_009" parent="Armature/Skeleton3D" index="9"]
+surface_material_override/0 = SubResource("StandardMaterial3D_40q5u")
+
+[node name="Icosphere" parent="Armature/Skeleton3D" index="10"]
+surface_material_override/0 = SubResource("StandardMaterial3D_40q5u")
+
+[node name="Icosphere_001" parent="Armature/Skeleton3D" index="11"]
+surface_material_override/0 = SubResource("StandardMaterial3D_40q5u")
+
+[node name="Icosphere_002" parent="Armature/Skeleton3D" index="12"]
+surface_material_override/0 = SubResource("StandardMaterial3D_40q5u")
+
+[node name="Icosphere_003" parent="Armature/Skeleton3D" index="13"]
+surface_material_override/0 = SubResource("StandardMaterial3D_40q5u")
+
+[node name="Icosphere_004" parent="Armature/Skeleton3D" index="14"]
+surface_material_override/0 = SubResource("StandardMaterial3D_40q5u")
+
+[node name="Icosphere_005" parent="Armature/Skeleton3D" index="15"]
+surface_material_override/0 = SubResource("StandardMaterial3D_40q5u")
+
+[node name="Icosphere_006" parent="Armature/Skeleton3D" index="16"]
+surface_material_override/0 = SubResource("StandardMaterial3D_40q5u")
+
+[node name="Icosphere_007" parent="Armature/Skeleton3D" index="17"]
+surface_material_override/0 = SubResource("StandardMaterial3D_6vvxk")
+
+[node name="Icosphere_008" parent="Armature/Skeleton3D" index="18"]
+surface_material_override/0 = SubResource("StandardMaterial3D_40q5u")
+
+[node name="Plane" parent="Armature/Skeleton3D" index="19"]
+surface_material_override/0 = SubResource("StandardMaterial3D_40q5u")
+
+[node name="TentacleJiggle" type="Node3D" parent="Armature/Skeleton3D" index="20"]
+transform = Transform3D(1, 2.16069e-06, 2.38705e-07, 2.16076e-06, -1, -0.000267031, 2.38128e-07, 0.000267031, -1, -0.209367, 0.358023, -0.962833)
+top_level = true
+script = ExtResource("4_6vvxk")
+bone_name = "Tentacle"
+stiffness = 0.2
+damping = 1.0
+forward_axis = 1
+metadata/_custom_type_script = "uid://dki43vwwc5g84"
+
+[node name="TentacleJiggle2" type="Node3D" parent="Armature/Skeleton3D" index="21"]
+transform = Transform3D(1, 1.58285e-06, 2.3852e-07, 1.58291e-06, -1, -0.000249041, 2.38126e-07, 0.000249041, -1, 0.252546, 0.242744, -1.05823)
+top_level = true
+script = ExtResource("4_6vvxk")
+bone_name = "Tentacle.001"
+stiffness = 0.2
+damping = 1.0
+forward_axis = 1
+metadata/_custom_type_script = "uid://dki43vwwc5g84"
+
+[node name="TentacleJiggle3" type="Node3D" parent="Armature/Skeleton3D" index="22"]
+transform = Transform3D(1, 1.4929e-06, 2.38493e-07, 1.49295e-06, -1, -0.000224522, 2.38158e-07, 0.000224522, -1, 0.503588, 0.152086, -0.721834)
+top_level = true
+script = ExtResource("4_6vvxk")
+bone_name = "Tentacle.002"
+stiffness = 0.2
+damping = 1.0
+forward_axis = 1
+metadata/_custom_type_script = "uid://dki43vwwc5g84"
+
+[node name="TentacleJiggle4" type="Node3D" parent="Armature/Skeleton3D" index="23"]
+transform = Transform3D(1, 1.79249e-06, 2.38626e-07, 1.79254e-06, -1, -0.000229449, 2.38215e-07, 0.00022945, -1, -0.116483, 0.293676, -0.824762)
+top_level = true
+script = ExtResource("4_6vvxk")
+bone_name = "Tentacle.003"
+stiffness = 0.2
+damping = 1.0
+forward_axis = 1
+metadata/_custom_type_script = "uid://dki43vwwc5g84"
+
+[node name="TentacleJiggle5" type="Node3D" parent="Armature/Skeleton3D" index="24"]
+transform = Transform3D(1, 1.5123e-06, 2.38523e-07, 1.51235e-06, -1, -0.000221027, 2.38188e-07, 0.000221027, -1, -0.312294, 0.353649, -0.681669)
+top_level = true
+script = ExtResource("4_6vvxk")
+bone_name = "Tentacle.004"
+stiffness = 0.2
+damping = 1.0
+forward_axis = 1
+metadata/_custom_type_script = "uid://dki43vwwc5g84"
+
+[node name="TentacleJiggle6" type="Node3D" parent="Armature/Skeleton3D" index="25"]
+transform = Transform3D(1, 1.94719e-06, 2.38647e-07, 1.94725e-06, -1, -0.000251009, 2.38159e-07, 0.000251009, -1, 0.224932, 0.274236, -0.475815)
+top_level = true
+script = ExtResource("4_6vvxk")
+bone_name = "Tentacle.005"
+stiffness = 0.2
+damping = 1.0
+forward_axis = 1
+metadata/_custom_type_script = "uid://dki43vwwc5g84"
+
+[node name="TentacleJiggle7" type="Node3D" parent="Armature/Skeleton3D" index="26"]
+transform = Transform3D(1, 1.75227e-06, 2.38631e-07, 1.75232e-06, -1, -0.000223085, 2.3824e-07, 0.000223085, -1, -0.0662745, 0.41754, -0.159505)
+top_level = true
+script = ExtResource("4_6vvxk")
+bone_name = "Tentacle.006"
+stiffness = 0.2
+damping = 1.0
+forward_axis = 1
+metadata/_custom_type_script = "uid://dki43vwwc5g84"
+
+[node name="TentacleJiggle8" type="Node3D" parent="Armature/Skeleton3D" index="27"]
+transform = Transform3D(1, 4.11601e-06, 2.39244e-07, 4.11613e-06, -1, -0.000509779, 2.37146e-07, 0.000509779, -1, -0.209363, -0.438359, -0.962348)
+top_level = true
+script = ExtResource("4_6vvxk")
+bone_name = "Tentacle.007"
+stiffness = 0.2
+damping = 1.0
+forward_axis = 1
+metadata/_custom_type_script = "uid://dki43vwwc5g84"
+
+[node name="TentacleJiggle9" type="Node3D" parent="Armature/Skeleton3D" index="28"]
+transform = Transform3D(1, 3.41114e-06, 2.38889e-07, 3.41125e-06, -1, -0.000492761, 2.37208e-07, 0.00049276, -1, 0.25255, -0.553639, -1.05778)
+top_level = true
+script = ExtResource("4_6vvxk")
+bone_name = "Tentacle.008"
+stiffness = 0.2
+damping = 1.0
+forward_axis = 1
+metadata/_custom_type_script = "uid://dki43vwwc5g84"
+
+[node name="TentacleJiggle10" type="Node3D" parent="Armature/Skeleton3D" index="29"]
+transform = Transform3D(1, 2.98204e-06, 2.38608e-07, 2.98215e-06, -1, -0.000466937, 2.37216e-07, 0.000466936, -1, 0.503589, -0.835666, -0.721383)
+top_level = true
+script = ExtResource("4_6vvxk")
+bone_name = "Tentacle.009"
+stiffness = 0.2
+damping = 1.0
+forward_axis = 1
+metadata/_custom_type_script = "uid://dki43vwwc5g84"
+
+[node name="TentacleJiggle11" type="Node3D" parent="Armature/Skeleton3D" index="30"]
+transform = Transform3D(1, 3.51226e-06, 2.38918e-07, 3.51237e-06, -1, -0.000454907, 2.37321e-07, 0.000454907, -1, -0.116479, -0.694075, -0.8243)
+top_level = true
+script = ExtResource("4_6vvxk")
+bone_name = "Tentacle.010"
+stiffness = 0.2
+damping = 1.0
+forward_axis = 1
+metadata/_custom_type_script = "uid://dki43vwwc5g84"
+
+[node name="TentacleJiggle12" type="Node3D" parent="Armature/Skeleton3D" index="31"]
+transform = Transform3D(1, 1.03531e-06, 2.37862e-07, 1.03534e-06, -1, -9.26238e-05, 2.37766e-07, 9.26237e-05, -1, -0.312291, -0.442733, -0.681267)
+top_level = true
+script = ExtResource("4_6vvxk")
+bone_name = "Tentacle.011"
+stiffness = 0.2
+damping = 1.0
+forward_axis = 1
+metadata/_custom_type_script = "uid://dki43vwwc5g84"
+
+[node name="TentacleJiggle13" type="Node3D" parent="Armature/Skeleton3D" index="32"]
+transform = Transform3D(1, 1.3986e-06, 2.37871e-07, 1.39863e-06, -1, -0.000108885, 2.37718e-07, 0.000108885, -1, 0.224936, -0.522147, -0.475359)
+top_level = true
+script = ExtResource("4_6vvxk")
+bone_name = "Tentacle.012"
+stiffness = 0.2
+damping = 1.0
+forward_axis = 1
+metadata/_custom_type_script = "uid://dki43vwwc5g84"
+
+[node name="TentacleJiggle14" type="Node3D" parent="Armature/Skeleton3D" index="33"]
+transform = Transform3D(1, 3.6032e-06, 2.39014e-07, 3.60331e-06, -1, -0.000466191, 2.37334e-07, 0.000466191, -1, -0.0662713, -0.378843, -0.159099)
+top_level = true
+script = ExtResource("4_6vvxk")
+bone_name = "Tentacle.013"
+stiffness = 0.2
+damping = 1.0
+forward_axis = 1
+metadata/_custom_type_script = "uid://dki43vwwc5g84"
+
+[node name="CloakJiggle" type="Node3D" parent="Armature/Skeleton3D" index="34"]
+transform = Transform3D(1, 7.64947e-08, -4.76868e-07, 7.92319e-08, -0.999984, 0.00574253, -4.7642e-07, -0.00574252, -0.999985, -0.656721, 0.0170202, -0.615488)
+top_level = true
+script = ExtResource("4_6vvxk")
+bone_name = "CloakA"
+forward_axis = 1
+metadata/_custom_type_script = "uid://dki43vwwc5g84"
+
+[node name="CloakJiggle2" type="Node3D" parent="Armature/Skeleton3D" index="35"]
+transform = Transform3D(1, -6.08279e-10, 2.38419e-07, -6.38776e-10, -1, 0.000127915, 2.38419e-07, -0.000127915, -1, -0.00602497, 0.0184056, -1.30425)
+top_level = true
+script = ExtResource("4_6vvxk")
+bone_name = "CloakB"
+forward_axis = 1
+metadata/_custom_type_script = "uid://dki43vwwc5g84"
+
+[node name="CloakJiggle3" type="Node3D" parent="Armature/Skeleton3D" index="36"]
+transform = Transform3D(1, 7.56839e-08, -4.76865e-07, 7.84271e-08, -0.999983, 0.00575501, -4.76422e-07, -0.00575502, -0.999982, 0.704921, 0.0230451, -0.615487)
+top_level = true
+script = ExtResource("4_6vvxk")
+bone_name = "CloakC"
+forward_axis = 1
+metadata/_custom_type_script = "uid://dki43vwwc5g84"
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeBlendTree_6plm2")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Attack/active = false
+parameters/Attack/internal_active = false
+parameters/Attack/request = 0
+parameters/MoveBlend/blend_position = 0

@@ -70,10 +70,11 @@ func attack():
 		await get_tree().create_timer(attack_move_delay - attack_interval).timeout
 		can_move = true
 
+
 func on_anim_attack_trigger():
 	var attack = attack_prefab.instantiate() as EnemyAttack
 	get_tree().root.add_child(attack)
-	attack.global_position = global_position + global_basis.z + Vector3(0, 1.0, 0)
+	attack.global_position = $AttackPoint.global_position
 	attack.global_rotation = global_rotation
 	
 	attack.activate(self, damage)

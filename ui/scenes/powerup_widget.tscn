@@ -39,13 +39,14 @@ expand_mode = 1
 [node name="Label" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 5.0
+offset_left = -4.0
 offset_top = 9.0
-offset_right = 45.0
+offset_right = 36.0
 offset_bottom = 32.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 10
 text = "POW"
+horizontal_alignment = 1
 
 [node name="Repulsor" type="Area2D" parent="." groups=["ui_repulsor"]]
 position = Vector2(16, 16)

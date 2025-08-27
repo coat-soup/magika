@@ -3,6 +3,7 @@ class_name UIManager
 
 @onready var hit_marker: TextureRect = $Hud/HitMarker
 @onready var audio: AudioStreamPlayer = $UIAudio
+@onready var health_bar: ProgressBar = $Hud/HealthBar
 
 @export var spell_slots : Array[Control]
 var powerups : Array[PowerupWidget]
@@ -26,6 +27,8 @@ func _ready() -> void:
 		spell_slots[i].mouse_exited.connect(set_active_slot.bind(-1))
 	
 	set_active_hotbar_slot(0)
+	
+	Global.player.health.took_damage.connect(on_player_damaged)
 
 
 func _input(event: InputEvent) -> void:
@@ -88,3 +91,7 @@ func powerup_drag_ended(powerup : PowerupWidget):
 func set_active_hotbar_slot(id : int):
 	for slot in $Hotbar.get_children():
 		(slot.get_child(0) as TextureRect).modulate = Color.hex(0x9ec8d982) if slot.get_index() == id else Color.hex(0x00000040)
+
+
+func on_player_damaged():
+	health_bar.value = Global.player.health.cur_health/float(Global.player.health.max_health)

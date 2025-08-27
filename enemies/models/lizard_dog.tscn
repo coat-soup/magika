@@ -60,29 +60,27 @@ node_connections = [&"Attack", 0, &"MoveBlend", &"Attack", 1, &"AttackAnim", &"o
 script = ExtResource("2_qwepj")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(1.56616e-08, 0.0629203, -0.125853)
-bones/1/rotation = Quaternion(8.08047e-09, 1.60823e-07, 0.138362, 0.990382)
-bones/3/rotation = Quaternion(1.21853e-07, 6.15299e-08, -0.572162, 0.820141)
-bones/4/rotation = Quaternion(-2.34409e-07, 1.18612e-07, 0.28203, 0.959406)
-bones/5/rotation = Quaternion(0.101566, 0.205532, 0.812754, 0.535604)
-bones/6/rotation = Quaternion(-0.387468, 0.0105709, 0.229927, 0.892687)
-bones/7/rotation = Quaternion(0.0208685, 0.0741056, -0.664426, 0.743378)
-bones/8/rotation = Quaternion(-0.10974, -0.200126, 0.811688, 0.537652)
-bones/9/rotation = Quaternion(0.385126, -0.0195588, 0.233829, 0.892535)
-bones/10/rotation = Quaternion(-0.0208716, -0.0741057, -0.664426, 0.743378)
-bones/11/rotation = Quaternion(-0.00536767, 0.00448386, 0.999205, -0.0392362)
-bones/14/rotation = Quaternion(0.044315, 0.0614046, 0.815093, 0.57436)
-bones/15/rotation = Quaternion(-0.13803, 0.0125, 0.255479, 0.956829)
-bones/16/rotation = Quaternion(0.018173, 0.0501678, -0.652275, 0.756102)
-bones/17/rotation = Quaternion(-0.0443145, -0.0614045, 0.815093, 0.57436)
-bones/18/rotation = Quaternion(0.13803, -0.0125002, 0.255478, 0.956829)
-bones/19/rotation = Quaternion(-0.0181732, -0.0501674, -0.652275, 0.756102)
-bones/20/position = Vector3(0.216407, -0.328416, 0.669284)
+bones/0/position = Vector3(-2.23515e-16, -0.000178221, -0.0946643)
+bones/1/rotation = Quaternion(4.20598e-09, 1.54479e-07, 0.106922, 0.994267)
+bones/3/rotation = Quaternion(1.58061e-07, 6.17228e-08, -0.61186, 0.790966)
+bones/4/rotation = Quaternion(-3.14216e-08, 1.26039e-07, 0.0679103, 0.997691)
+bones/5/rotation = Quaternion(0.0681563, 0.129065, 0.823135, 0.548768)
+bones/6/rotation = Quaternion(-0.222802, 0.00499382, 0.110028, 0.968622)
+bones/7/rotation = Quaternion(0.0534037, 0.057143, -0.825694, 0.55867)
+bones/8/rotation = Quaternion(-0.0764422, -0.123532, 0.822407, 0.550039)
+bones/9/rotation = Quaternion(0.221683, -0.0147478, 0.112267, 0.968522)
+bones/10/rotation = Quaternion(-0.0534039, -0.057143, -0.825694, 0.55867)
+bones/11/rotation = Quaternion(-0.00451839, 0.00445939, 0.999232, -0.038662)
+bones/14/rotation = Quaternion(0.0418058, 0.05245, 0.780228, 0.621888)
+bones/15/rotation = Quaternion(-0.119239, 0.00870991, 0.193695, 0.97375)
+bones/16/rotation = Quaternion(0.0357479, 0.0402474, -0.817954, 0.57276)
+bones/17/rotation = Quaternion(-0.0418052, -0.0524499, 0.780229, 0.621888)
+bones/18/rotation = Quaternion(0.119238, -0.00871011, 0.193694, 0.97375)
+bones/19/rotation = Quaternion(-0.0357482, -0.040247, -0.817954, 0.57276)
+bones/20/position = Vector3(0.216407, -0.416625, 0.779157)
 bones/20/rotation = Quaternion(0.466686, -0.531229, 0.531229, -0.466686)
-bones/21/position = Vector3(-0.216407, -0.328416, 0.669284)
-bones/22/position = Vector3(0.160315, -0.328416, -0.1688)
 bones/22/rotation = Quaternion(0.477692, -0.521354, 0.521354, -0.477692)
-bones/23/position = Vector3(-0.160315, -0.328416, -0.1688)
+bones/23/position = Vector3(-0.160315, -0.416625, -0.0589263)
 
 [node name="Cube" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_qdm1w")
@@ -97,7 +95,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1rsmu")
 surface_material_override/0 = SubResource("StandardMaterial3D_1rsmu")
 
 [node name="JiggleTail" type="Node3D" parent="Armature/Skeleton3D" index="4"]
-transform = Transform3D(-0.0100324, 0.00974494, 0.999903, -0.988381, -0.151763, -0.00843785, 0.151666, -0.988369, 0.0111543, 0.0103924, 0.312956, -1.65319)
+transform = Transform3D(-0.00835323, 0.00956377, 0.999921, -0.988136, -0.153434, -0.00678731, 0.153356, -0.988113, 0.010732, 0.0102036, 0.248653, -1.62181)
 top_level = true
 script = ExtResource("3_qdm1w")
 bone_name = "TailTop"
@@ -105,7 +103,7 @@ forward_axis = 1
 metadata/_custom_type_script = "uid://dki43vwwc5g84"
 
 [node name="JiggleTail2" type="Node3D" parent="Armature/Skeleton3D" index="5"]
-transform = Transform3D(-0.00968051, 0.010093, 0.999903, -0.993136, -0.116659, -0.00843749, 0.116563, -0.993121, 0.0111531, 0.0138602, 0.299551, -1.9744)
+transform = Transform3D(-0.00800729, 0.00985265, 0.999921, -0.992972, -0.11815, -0.0067874, 0.118073, -0.992947, 0.0107294, 0.0135536, 0.234162, -1.94291)
 top_level = true
 script = ExtResource("3_qdm1w")
 bone_name = "TailTip"

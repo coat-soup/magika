@@ -37,3 +37,8 @@ script = ExtResource("3_6db5e")
 metadata/_custom_type_script = "uid://c51uewr0gwe3k"
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+radius = 1.0
+
+[node name="AttackPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04272, 0.647443)
