@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqc8okxvhlb0c"]
+[gd_scene load_steps=8 format=3 uid="uid://bqc8okxvhlb0c"]
 
-[ext_resource type="Script" uid="uid://cg6qe0xc7l6em" path="res://enemies/scripts/walking_enemy.gd" id="1_d6e2t"]
-[ext_resource type="PackedScene" uid="uid://bpcq3o7hdiof" path="res://enemies/attacks/enemy_leap_attack.tscn" id="2_0q8og"]
+[ext_resource type="Script" uid="uid://c0w20r62dcnrb" path="res://enemies/hovering_enemy.gd" id="1_nhb2u"]
+[ext_resource type="PackedScene" uid="uid://bsap5u8j0dqp5" path="res://enemies/attacks/enemy_projectile_attack.tscn" id="2_d6e2t"]
 [ext_resource type="PackedScene" uid="uid://b3ih45nm3u1lq" path="res://enemies/models/tentacloak.tscn" id="3_0q8og"]
 [ext_resource type="Script" uid="uid://c51uewr0gwe3k" path="res://system/health.gd" id="4_0lco0"]
 
@@ -11,16 +11,20 @@ radius = 0.792971
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0q8og"]
 radius = 0.449751
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_d6e2t"]
+radius = 0.0431732
+
 [node name="TentacloakEnemy" type="CharacterBody3D" node_paths=PackedStringArray("health")]
 collision_layer = 2
 collision_mask = 3
-script = ExtResource("1_d6e2t")
+script = ExtResource("1_nhb2u")
 health = NodePath("Health")
-speed = 2.0
-attack_range = 3.0
-attack_prefab = ExtResource("2_0q8og")
+attack_range = 15.0
+attack_move_delay = 0.0
+attack_prefab = ExtResource("2_d6e2t")
 
 [node name="tentacloak" parent="." instance=ExtResource("3_0q8og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11485, 0)
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("4_0lco0")
@@ -31,12 +35,16 @@ avoidance_enabled = true
 radius = 1.0
 
 [node name="AttackPoint" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04272, 0.647443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2452, 1.32929)
 
 [node name="BodyCol" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30013, -0.541298)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.41498, -0.541298)
 shape = SubResource("CapsuleShape3D_d6e2t")
 
 [node name="NeckCol" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.545429, -0.838157, 0, 0.838157, 0.545429, 0, 2.21646, 0.406712)
+transform = Transform3D(1, 0, 0, 0, 0.545429, -0.838157, 0, 0.838157, 0.545429, 0, 3.33131, 0.406712)
 shape = SubResource("CapsuleShape3D_0q8og")
+
+[node name="FloorCol" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0433234, 0)
+shape = SubResource("SphereShape3D_d6e2t")

@@ -95,7 +95,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1rsmu")
 surface_material_override/0 = SubResource("StandardMaterial3D_1rsmu")
 
 [node name="JiggleTail" type="Node3D" parent="Armature/Skeleton3D" index="4"]
-transform = Transform3D(-0.00835323, 0.00956377, 0.999921, -0.988136, -0.153434, -0.00678731, 0.153356, -0.988113, 0.010732, 0.0102036, 0.248653, -1.62181)
+transform = Transform3D(-0.00835109, 0.00975916, 0.999919, -0.988169, -0.153223, -0.00675748, 0.153144, -0.988143, 0.0109233, 0.0102036, 0.248653, -1.62181)
 top_level = true
 script = ExtResource("3_qdm1w")
 bone_name = "TailTop"
@@ -103,7 +103,7 @@ forward_axis = 1
 metadata/_custom_type_script = "uid://dki43vwwc5g84"
 
 [node name="JiggleTail2" type="Node3D" parent="Armature/Skeleton3D" index="5"]
-transform = Transform3D(-0.00800729, 0.00985265, 0.999921, -0.992972, -0.11815, -0.0067874, 0.118073, -0.992947, 0.0107294, 0.0135536, 0.234162, -1.94291)
+transform = Transform3D(-0.0080018, 0.00979185, 0.999921, -0.992954, -0.118304, -0.00678755, 0.118228, -0.992929, 0.0106695, 0.0138114, 0.234442, -1.94295)
 top_level = true
 script = ExtResource("3_qdm1w")
 bone_name = "TailTip"

@@ -23,8 +23,8 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_svve8"]
-vertices = PackedVector3Array(-24.5, 1, -24.5, -24.5, 1, 24.5, 24.5, 1, 24.5, 24.5, 1, -24.5)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+vertices = PackedVector3Array(-7.5, 3.58774, 30.75, 1.5, 3.58774, 30.75, 1.5, 1.08774, 25.25, -7.75, 0.837744, 24.5, 11.75, 0.837744, 24.5, 24.5, 0.837744, 24.5, 24.5, 0.837744, -24.5, 2.5, 0.837744, 25, 2.5, -1.41226, 31, 11.5, -1.41226, 31, -24.5, 0.837744, -24.5, -24.5, 0.837744, 24.5)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(6, 5, 4), PackedInt32Array(7, 2, 3), PackedInt32Array(8, 7, 9), PackedInt32Array(9, 7, 4), PackedInt32Array(3, 11, 10), PackedInt32Array(7, 3, 4), PackedInt32Array(4, 3, 6), PackedInt32Array(6, 3, 10)]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nb50o"]
 render_priority = 0
@@ -77,6 +77,18 @@ use_collision = true
 size = Vector3(50, 1, 50)
 material = SubResource("ShaderMaterial_nb50o")
 
+[node name="Floor2" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 0.936366, -0.351025, 0, 0.351025, 0.936366, 7, -1.20364, 28.1019)
+use_collision = true
+size = Vector3(10, 1, 7.0675)
+material = SubResource("ShaderMaterial_nb50o")
+
+[node name="Floor3" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 0.910323, 0.413899, 0, -0.413899, 0.910323, -3, 1.36371, 28.1019)
+use_collision = true
+size = Vector3(10, 1, 7.0675)
+material = SubResource("ShaderMaterial_nb50o")
+
 [node name="PlayerCamera" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32203, 0)
 
@@ -110,16 +122,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47855, 1.5, -8.61318)
 transform = Transform3D(0.804852, 0, 0.593475, 0, 1, 0, -0.593475, 0, 0.804852, 5.7266, 1.38128, 9.78372)
 
 [node name="LizardDogEnemy2" parent="Enemies" instance=ExtResource("7_svve8")]
-transform = Transform3D(0.804852, 0, 0.593475, 0, 1, 0, -0.593475, 0, 0.804852, -4.37322, 1.38128, 10.2299)
+transform = Transform3D(0.804852, 0, 0.593475, 0, 1, 0, -0.593475, 0, 0.804852, 5.13736, 1.38128, 15.57)
 
 [node name="LizardDogEnemy3" parent="Enemies" instance=ExtResource("7_svve8")]
-transform = Transform3D(0.804852, 0, 0.593475, 0, 1, 0, -0.593475, 0, 0.804852, -6.46961, 1.38128, 2.4851)
-
-[node name="LizardDogEnemy4" parent="Enemies" instance=ExtResource("7_svve8")]
-transform = Transform3D(0.804852, 0, 0.593475, 0, 1, 0, -0.593475, 0, 0.804852, 8.30747, 1.38128, 4.29046)
-
-[node name="LizardDogEnemy5" parent="Enemies" instance=ExtResource("7_svve8")]
-transform = Transform3D(0.804852, 0, 0.593475, 0, 1, 0, -0.593475, 0, 0.804852, -1.14542, 1.38128, 16.5415)
+transform = Transform3D(0.804852, 0, 0.593475, 0, 1, 0, -0.593475, 0, 0.804852, 7.51235, 1.38128, 13.5875)
 
 [node name="TentacloakEnemy" parent="Enemies" instance=ExtResource("8_cb3e4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.77399, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24505, 0.466064, 11.1821)
+
+[node name="TentacloakEnemy2" parent="Enemies" instance=ExtResource("8_cb3e4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.84571, 0.466064, 18.9191)

@@ -7,7 +7,7 @@ signal attacked
 @export_range(0.0, 1.0) var powerup_chance = 0.5
 
 @export var damage : int = 20
-@export var speed : float = 5.0
+@export var speed : float = 2.0
 @export var turn_speed : float = 5.0
 @export var attack_range : float = 1.5
 

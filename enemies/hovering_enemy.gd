@@ -2,6 +2,9 @@ extends Enemy
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 
+@export var hover_height : float = 1.0
+@export var stay_range : float = 10.0
+
 
 func _ready() -> void:
 	super._ready()
@@ -17,8 +20,7 @@ func _physics_process(delta: float) -> void:
 	
 	global_rotation.y += global_basis.z.signed_angle_to(dir, Vector3.UP) * turn_speed * delta
 	
-	var nav_vel : Vector3 = global_basis.z * speed if can_move else Vector3.ZERO
-	
+	var nav_vel : Vector3 = global_basis.z * speed if can_move and nav_agent.distance_to_target() > stay_range else Vector3.ZERO
 	nav_agent.set_velocity(nav_vel)
 	
 	if nav_agent.distance_to_target() < attack_range:
