@@ -13,6 +13,7 @@ var velocity : Vector3
 var distance_covered : float
 
 var active := false
+@export var drop_speed := 200.0
 
 
 func activate():
@@ -32,6 +33,8 @@ func _physics_process(delta: float) -> void:
 		handle_collision()
 	
 	global_position += velocity * delta
+	velocity.y -= (drop_speed / spell_data.get_range()) * delta
+	look_at(global_position + velocity, Vector3.UP, true)
 	
 	distance_covered += velocity.length() * delta
 	if distance_covered >= spell_data.get_range(): dissipate()

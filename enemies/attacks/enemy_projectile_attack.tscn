@@ -1,8 +1,76 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsap5u8j0dqp5"]
+[gd_scene load_steps=18 format=3 uid="uid://bsap5u8j0dqp5"]
 
 [ext_resource type="Script" uid="uid://8l8ccuiasrly" path="res://enemies/attacks/enemy_projectile_attack.gd" id="1_uicsy"]
+[ext_resource type="ArrayMesh" uid="uid://dyqxdxvvt1emi" path="res://vfx/models/round_projectile_head.obj" id="2_o2233"]
+[ext_resource type="Shader" uid="uid://bob8g3pn4ahpb" path="res://vfx/shaders/fireball_head.tres" id="3_6dvbv"]
+[ext_resource type="ArrayMesh" uid="uid://bogvhu8r2u63f" path="res://vfx/models/cut_cone.obj" id="4_6dvbv"]
+[ext_resource type="Shader" uid="uid://dhilnaew3cgyr" path="res://vfx/shaders/texture_scroll.tres" id="5_25wnk"]
+[ext_resource type="Texture2D" uid="uid://d3iwu5cie5fh8" path="res://vfx/textures/jagged_ring.png" id="6_j2mtn"]
+[ext_resource type="AudioStream" uid="uid://cbmttx5ao6ugx" path="res://sfx/tentacloak_projectile_crackle.wav" id="7_j2mtn"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_t6cch"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_o2233"]
+noise_type = 2
+frequency = 0.1532
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6dvbv"]
+width = 64
+height = 64
+invert = true
+noise = SubResource("FastNoiseLite_o2233")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j2mtn"]
+render_priority = 0
+shader = ExtResource("3_6dvbv")
+shader_parameter/WiggleInterval = 22.63
+shader_parameter/WiggleSpeed = 9.725
+shader_parameter/WiggleStrength = 0.515
+shader_parameter/Color = Color(2.763, 0.212, 0.231, 1)
+shader_parameter/Speed = Vector2(0.36, 0)
+shader_parameter/Texture = SubResource("NoiseTexture2D_6dvbv")
+
+[sub_resource type="Gradient" id="Gradient_wj2wa"]
+colors = PackedColorArray(2.21, 0.192, 0.288, 1, 7.609, 0, 0.833, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qnt06"]
+gradient = SubResource("Gradient_wj2wa")
+use_hdr = true
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tfoop"]
+render_priority = 0
+shader = ExtResource("5_25wnk")
+shader_parameter/ColourTex = SubResource("GradientTexture2D_qnt06")
+shader_parameter/Speed = Vector2(0.375, -5)
+shader_parameter/AlphaTexture = ExtResource("6_j2mtn")
+
+[sub_resource type="Animation" id="Animation_j2mtn"]
+length = 0.001
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VFX")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_25wnk"]
+resource_name = "vfxgrow"
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VFX")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.1, 1, 1, 1, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j2mtn"]
+_data = {
+&"RESET": SubResource("Animation_j2mtn"),
+&"vfxgrow": SubResource("Animation_25wnk")
+}
 
 [node name="EnemyProjectileAttack" type="Node3D"]
 script = ExtResource("1_uicsy")
@@ -15,8 +83,35 @@ collision_mask = 3
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("SphereShape3D_t6cch")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+[node name="VFX" type="Node3D" parent="."]
 
-[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.57236)
-radius = 0.209762
+[node name="RoundProjectileHead" type="MeshInstance3D" parent="VFX"]
+transform = Transform3D(-9.21237e-08, 0, -1, 0, 1, 0, 2.10754, 0, -4.37114e-08, 0, 0, 0.260634)
+mesh = ExtResource("2_o2233")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_j2mtn")
+
+[node name="CutCone" type="MeshInstance3D" parent="VFX"]
+transform = Transform3D(0.463504, 0, 0, 0, -2.10049e-08, 0.463504, 0, -0.480535, -2.02604e-08, 0, 0, 0)
+mesh = ExtResource("4_6dvbv")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_tfoop")
+
+[node name="CutCone2" type="MeshInstance3D" parent="VFX"]
+transform = Transform3D(0.236005, 0, 0, 0, -1.06952e-08, 0.236005, 0, -0.244677, -1.03161e-08, 0, 0, 0.934031)
+mesh = ExtResource("4_6dvbv")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_tfoop")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_j2mtn")
+}
+autoplay = "vfxgrow"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_j2mtn")
+volume_db = 2.0
+unit_size = 20.0
+autoplay = true
+max_distance = 20.0

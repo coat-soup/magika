@@ -30,7 +30,8 @@ offsets = PackedFloat32Array(0.172414, 0.511494)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vcp6c"]
 gradient = SubResource("Gradient_jeno5")
-fill_from = Vector2(0, 0.042735)
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_367tg"]
 texture = SubResource("GradientTexture2D_vcp6c")
@@ -295,6 +296,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-1096.05, -92.7463)
 modes/cull = 2
 flags/unshaded = true
 flags/shadows_disabled = true

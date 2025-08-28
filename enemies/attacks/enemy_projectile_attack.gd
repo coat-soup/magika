@@ -22,8 +22,9 @@ func _process(delta: float) -> void:
 	if active: global_position += global_basis.z * speed * delta
 
 
-func on_body_entered(body : Node3D):
-	body = body as PlayerManager
-	if body:
-		body.health.take_damage(damage, 2)
+func on_body_entered(body : PhysicsBody3D):
+	var player = body as PlayerManager
+	if player:
+		player.health.take_damage(damage, 2)
 		queue_free()
+	elif body.get_collision_layer_value(1): queue_free()
