@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7jsu00m33ern"]
+
+[ext_resource type="PackedScene" uid="uid://c1w46rhw208oi" path="res://world/models/cliff_long.glb" id="1_4gqqs"]
+[ext_resource type="Shader" uid="uid://c5wgm4r1xjlau" path="res://vfx/shaders/ground_shader.tres" id="2_32c8a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q32ca"]
+render_priority = 0
+shader = ExtResource("2_32c8a")
+shader_parameter/ColourC = Color(0.0728426, 0.0728426, 0.0728426, 1)
+shader_parameter/ColourD = Color(0.125911, 0.125911, 0.125911, 1)
+shader_parameter/Scale3 = 152.185
+shader_parameter/ColourA = Color(0.179956, 0.236464, 0.0518501, 1)
+shader_parameter/ColourB = Color(0.162064, 0.212687, 0.0427463, 1)
+shader_parameter/Scale = 60.53
+shader_parameter/Scale2 = 500.0
+
+[node name="cliff_long" instance=ExtResource("1_4gqqs")]
+
+[node name="CliffLongSculpt" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_q32ca")

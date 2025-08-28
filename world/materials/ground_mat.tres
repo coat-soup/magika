@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://4foq3holm677"]
+
+[ext_resource type="Shader" uid="uid://c5wgm4r1xjlau" path="res://vfx/shaders/ground_shader.tres" id="1_kwfn3"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_kwfn3")
+shader_parameter/ColourC = Color(0, 0, 0, 1)
+shader_parameter/ColourD = Color(0.051971, 0.0519709, 0.051971, 1)
+shader_parameter/Scale3 = 800.0
+shader_parameter/ColourA = Color(0.272295, 0.296992, 0.0583753, 1)
+shader_parameter/ColourB = Color(0.273569, 0.280679, 0.0651558, 1)
+shader_parameter/Scale = 60.0
+shader_parameter/Scale2 = 200.0
