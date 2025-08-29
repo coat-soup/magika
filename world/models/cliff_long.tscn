@@ -22,5 +22,7 @@ points = PackedVector3Array(-9.89851, 36.4631, 4.0127, -10.9791, 35.3462, -10.44
 [node name="CliffLongSculpt" parent="." index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_q32ca")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_4gqqs")

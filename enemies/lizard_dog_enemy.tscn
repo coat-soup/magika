@@ -36,6 +36,7 @@ script = ExtResource("3_6db5e")
 metadata/_custom_type_script = "uid://c51uewr0gwe3k"
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = 0.3
 avoidance_enabled = true
 radius = 1.0
 
