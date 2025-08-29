@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0ckbemqfjed2"]
+
+[ext_resource type="PackedScene" uid="uid://byo51aooer7hl" path="res://world/models/mushroom.glb" id="1_inv2b"]
+[ext_resource type="Texture2D" uid="uid://cro0ak02qlqsw" path="res://world/textures/mushroom_small.png" id="2_inv2b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uh47f"]
+albedo_texture = ExtResource("2_inv2b")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fv5ko"]
+cull_mode = 2
+albedo_texture = ExtResource("2_inv2b")
+texture_filter = 0
+
+[node name="mushroom" instance=ExtResource("1_inv2b")]
+
+[node name="Circle" parent="." index="0"]
+transform = Transform3D(0.0514234, 0, 0, 0, 0.0514234, 0, 0, 0, 0.0514234, 0, 0.0379529, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_uh47f")
+
+[node name="Circle_001" parent="." index="1"]
+transform = Transform3D(0.0514234, 0, 0, 0, 0.0514234, 0, 0, 0, 0.0514234, 0, 0.520356, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_uh47f")
+
+[node name="Plane" parent="." index="2"]
+transform = Transform3D(0.0514234, 0, 0, 0, 0.0514234, 0, 0, 0, 0.0514234, 0, 0.538866, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_fv5ko")
+
+[node name="Empty_001" parent="." index="3"]
+transform = Transform3D(0.179453, 0, 0.0304804, 0, 0.182024, 0, -0.0304804, 0, 0.179453, 0, 0.976485, 0)

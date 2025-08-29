@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://dn833cxxoeal6"]
+
+[ext_resource type="PackedScene" uid="uid://chfmq3djl1f8x" path="res://world/models/grass.glb" id="1_3bc0l"]
+[ext_resource type="Shader" uid="uid://qopq7mv1laad" path="res://vfx/shaders/grass.gdshader" id="2_k67es"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k67es"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k67es"]
+noise = SubResource("FastNoiseLite_k67es")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pxktw"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fmls3"]
+noise = SubResource("FastNoiseLite_pxktw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pxktw"]
+render_priority = 0
+shader = ExtResource("2_k67es")
+shader_parameter/color = Color(0.819867, 0.40923, 0.534569, 1)
+shader_parameter/color2 = Color(0.103831, 0.29052, 0, 1)
+shader_parameter/noise = SubResource("NoiseTexture2D_k67es")
+shader_parameter/noiseScale = 9.11
+shader_parameter/windNoise = SubResource("NoiseTexture2D_fmls3")
+shader_parameter/windScale = 10.0
+shader_parameter/windSpeed = 0.02
+shader_parameter/windStrength = 0.7
+
+[node name="grass" instance=ExtResource("1_3bc0l")]
+
+[node name="Plane" parent="." index="0"]
+cast_shadow = 0
+surface_material_override/0 = SubResource("ShaderMaterial_pxktw")
