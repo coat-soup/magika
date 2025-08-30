@@ -15,4 +15,5 @@ func body_entered(body : Node3D):
 	if body:
 		Global.ui.play_audio(preload("res://sfx/powerup_collect.wav"))
 		Global.ui.add_powerup(type)
+		Global.powerups_collected += 1
 		queue_free()

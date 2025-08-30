@@ -31,6 +31,38 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
+[node name="SpellbookLabel" type="Label" parent="Hud"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -84.0
+offset_right = 50.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Q: Spellbook"
+horizontal_alignment = 1
+
+[node name="BiscuitHint" type="Label" parent="Hud"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -145.0
+offset_top = -51.0
+offset_right = 145.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Collect biscuits from killing monsters!"
+horizontal_alignment = 1
+
 [node name="Crosshair" type="TextureRect" parent="Hud"]
 modulate = Color(1, 1, 1, 0.458824)
 texture_filter = 1
@@ -111,20 +143,20 @@ offset_bottom = 40.0
 [node name="SpellCircle" type="TextureRect" parent="SpellBook"]
 modulate = Color(0.279, 0.101, 0, 0.094)
 layout_mode = 0
-offset_left = 55.0
-offset_top = 53.0
-offset_right = 483.0
-offset_bottom = 481.0
+offset_left = 244.0
+offset_top = 40.0
+offset_right = 672.0
+offset_bottom = 468.0
 mouse_filter = 2
 texture = ExtResource("4_vkava")
 
 [node name="SpellSlot" type="TextureRect" parent="SpellBook"]
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 240.0
-offset_top = 108.0
-offset_right = 310.0
-offset_bottom = 178.0
+offset_left = 429.0
+offset_top = 95.0
+offset_right = 499.0
+offset_bottom = 165.0
 texture = ExtResource("5_tf0e0")
 expand_mode = 1
 
@@ -159,10 +191,10 @@ shape = SubResource("CircleShape2D_bo1jx")
 
 [node name="SpellSlot2" type="TextureRect" parent="SpellBook"]
 layout_mode = 0
-offset_left = 365.0
-offset_top = 234.0
-offset_right = 435.0
-offset_bottom = 304.0
+offset_left = 554.0
+offset_top = 221.0
+offset_right = 624.0
+offset_bottom = 291.0
 texture = ExtResource("5_tf0e0")
 expand_mode = 1
 
@@ -196,10 +228,10 @@ shape = SubResource("CircleShape2D_bo1jx")
 
 [node name="SpellSlot3" type="TextureRect" parent="SpellBook"]
 layout_mode = 0
-offset_left = 235.0
-offset_top = 357.0
-offset_right = 305.0
-offset_bottom = 427.0
+offset_left = 424.0
+offset_top = 344.0
+offset_right = 494.0
+offset_bottom = 414.0
 texture = ExtResource("5_tf0e0")
 expand_mode = 1
 
@@ -233,10 +265,10 @@ shape = SubResource("CircleShape2D_bo1jx")
 
 [node name="SpellSlot4" type="TextureRect" parent="SpellBook"]
 layout_mode = 0
-offset_left = 114.0
-offset_top = 234.0
-offset_right = 184.0
-offset_bottom = 304.0
+offset_left = 303.0
+offset_top = 221.0
+offset_right = 373.0
+offset_bottom = 291.0
 texture = ExtResource("5_tf0e0")
 expand_mode = 1
 
@@ -267,6 +299,23 @@ position = Vector2(35, 35)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpellBook/SpellSlot4/Repulsor"]
 shape = SubResource("CircleShape2D_bo1jx")
+
+[node name="BiscuitHint" type="Label" parent="SpellBook"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -201.5
+offset_top = -43.0
+offset_right = 201.5
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Drag biscuits onto spells for upgrades!"
+horizontal_alignment = 1
 
 [node name="Hotbar" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -391,5 +440,54 @@ offset_right = 70.0
 offset_bottom = 70.0
 texture = ExtResource("5_tf0e0")
 expand_mode = 1
+
+[node name="DeathScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="DeathScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.172549, 0.156863, 0.168627, 0.941176)
+
+[node name="Label" type="Label" parent="DeathScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = -181.0
+offset_right = 189.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "YOU DIED"
+horizontal_alignment = 1
+
+[node name="TotalBiscuitsLabel" type="Label" parent="DeathScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -11.5
+offset_right = 150.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Biscuits collected: 40"
+horizontal_alignment = 1
 
 [node name="UIAudio" type="AudioStreamPlayer" parent="."]

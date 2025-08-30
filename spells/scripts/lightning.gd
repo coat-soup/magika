@@ -35,4 +35,11 @@ func do_thing_at(pos : Vector3):
 	
 	$LightningSFX.pitch_scale = randf_range(0.8, 1.2)
 	$LightningSFX.play()
-	Explosion.explode_at_point(self, pos, spell_data.get_size(), spell_data.get_power(), 1)
+	for body in $Area3D.get_overlapping_bodies():
+		print("zapping ", body)
+		if body as PlayerManager:
+			body.health.take_damage(spell_data.get_power(), 1)
+		elif body as Enemy:
+			body.health.take_damage(spell_data.get_power(), 1)
+			body.stun(3.0)
+	#Explosion.explode_at_point(self, pos, spell_data.get_size(), spell_data.get_power(), 1)

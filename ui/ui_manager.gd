@@ -62,6 +62,7 @@ func toggle_spellbook(value):
 	spellbook_active = value
 	$SpellBook.visible = value
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if value else Input.MOUSE_MODE_CAPTURED
+	play_audio(preload("res://sfx/paper_page_rustle.wav"))
 
 
 func add_powerup(type : int):
@@ -95,3 +96,8 @@ func set_active_hotbar_slot(id : int):
 
 func on_player_damaged():
 	health_bar.value = Global.player.health.cur_health/float(Global.player.health.max_health)
+
+
+func show_death_screen():
+	$DeathScreen.visible = true
+	$DeathScreen/TotalBiscuitsLabel.text = "Biscuits collected: %d" % [Global.powerups_collected]

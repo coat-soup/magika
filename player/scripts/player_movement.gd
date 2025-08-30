@@ -38,6 +38,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if player.health.cur_health <= 0: return
+	
 	if face_camera_timer > 0: face_camera_timer -= delta
 	
 	if Input.is_action_pressed("attack"): face_camera()

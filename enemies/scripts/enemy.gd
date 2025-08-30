@@ -78,3 +78,11 @@ func on_anim_attack_trigger():
 	attack.global_rotation = global_rotation
 	
 	attack.activate(self, damage)
+
+
+func stun(time : float):
+	can_move = false
+	can_attack = false
+	await get_tree().create_timer(time).timeout
+	can_move = true
+	can_attack = true

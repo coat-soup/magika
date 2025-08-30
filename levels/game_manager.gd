@@ -19,6 +19,8 @@ func _ready() -> void:
 	Global.camera = camera
 	Global.ui = ui
 	
+	player.health.died.connect(on_player_died)
+	
 	for i in range(max_enemies):
 		spawn_enemy()
 	
@@ -30,7 +32,7 @@ func _input(event: InputEvent) -> void:
 
 
 func spawn_enemy_loop():
-	if num_enemies < max_enemies:
+	while num_enemies < max_enemies:
 		spawn_enemy()
 	
 	max_enemies += max_enemy_growth_rate * enemy_spawn_interval / 60.0
@@ -72,3 +74,9 @@ static func choose_random_enemy(spawn_data : Array[EnemySpawnData]) -> String:
 			return d.scene_path
 	
 	return ""
+
+
+func on_player_died():
+	Global.ui.show_death_screen()
+	await get_tree().create_timer(5.0).timeout
+	get_tree().reload_current_scene()

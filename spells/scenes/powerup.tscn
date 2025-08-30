@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ctblf0htgofd7"]
+[gd_scene load_steps=16 format=3 uid="uid://ctblf0htgofd7"]
 
 [ext_resource type="Script" uid="uid://ddu0eioyh1u1u" path="res://spells/scripts/powerup.gd" id="1_e5xcp"]
 [ext_resource type="ArrayMesh" uid="uid://oxd8jdnelik2" path="res://vfx/models/teardrop.obj" id="2_juuhg"]
@@ -9,11 +9,19 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_3ag6s"]
 radius = 1.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ag6s"]
+albedo_color = Color(0.763481, 0.539701, 0.213322, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ly700"]
+albedo_color = Color(0.429375, 0.0569994, 0.0808736, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_juuhg"]
-albedo_color = Color(0, 0.877, 2, 1)
+transparency = 1
+cull_mode = 1
+albedo_color = Color(0, 0.878431, 2, 1)
 emission_enabled = true
 emission = Color(0.336197, 0.835092, 1, 1)
-emission_energy_multiplier = 3.0
+emission_energy_multiplier = 1.71
 
 [sub_resource type="Gradient" id="Gradient_xahu3"]
 offsets = PackedFloat32Array(0.229508, 1)
@@ -70,8 +78,46 @@ shape = SubResource("SphereShape3D_3ag6s")
 
 [node name="VisualHolder" type="Node3D" parent="."]
 
+[node name="BiscuitBlockout" type="Node3D" parent="VisualHolder"]
+
+[node name="BiscuitBase" type="CSGSphere3D" parent="VisualHolder/BiscuitBlockout"]
+transform = Transform3D(1, 0, 0, 0, 0.275702, 0, 0, 0, 1, 0, 0, 0)
+radius = 0.103188
+material = SubResource("StandardMaterial3D_3ag6s")
+
+[node name="ChocolateChip" type="CSGBox3D" parent="VisualHolder/BiscuitBlockout"]
+transform = Transform3D(0.19143, -0.0561901, 0.0631794, 0.0617377, 0.199735, -0.00942281, -0.0577703, 0.0272582, 0.199283, 0, 0.0329166, 0)
+size = Vector3(0.1, 0.1, 0.1)
+material = SubResource("StandardMaterial3D_ly700")
+
+[node name="ChocolateChip2" type="CSGBox3D" parent="VisualHolder/BiscuitBlockout"]
+transform = Transform3D(0.171393, 0.0929008, 0.0760797, -0.0670738, 0.184047, -0.0736349, -0.0995981, 0.0359226, 0.180511, 0.0556518, 0.0238159, 0.0313513)
+size = Vector3(0.1, 0.1, 0.1)
+material = SubResource("StandardMaterial3D_ly700")
+
+[node name="ChocolateChip3" type="CSGBox3D" parent="VisualHolder/BiscuitBlockout"]
+transform = Transform3D(0.208942, -0.00781467, 0.0087324, -0.00462526, 0.0882878, 0.189679, -0.0107671, -0.189574, 0.0879765, -0.0110348, 0.0292264, 0.0587755)
+size = Vector3(0.1, 0.1, 0.1)
+material = SubResource("StandardMaterial3D_ly700")
+
+[node name="ChocolateChip4" type="CSGBox3D" parent="VisualHolder/BiscuitBlockout"]
+transform = Transform3D(0.164036, -0.00639105, 0.0695577, 0.00369235, 0.178086, 0.00765517, -0.069753, -0.00560267, 0.163982, -0.0172314, 0.023722, -0.0454061)
+size = Vector3(0.1, 0.1, 0.1)
+material = SubResource("StandardMaterial3D_ly700")
+
+[node name="ChocolateChip5" type="CSGBox3D" parent="VisualHolder/BiscuitBlockout"]
+transform = Transform3D(0.11217, 0.0608001, 0.0497914, -0.078217, 0.0947795, 0.060473, -0.00761127, -0.077963, 0.112347, 0.0453591, 0.0230449, -0.0567558)
+size = Vector3(0.1, 0.1, 0.1)
+material = SubResource("StandardMaterial3D_ly700")
+
+[node name="ChocolateChip6" type="CSGBox3D" parent="VisualHolder/BiscuitBlockout"]
+transform = Transform3D(0.106219, 0.0309901, 0.0807161, -0.0738839, -0.0338753, 0.110235, 0.044907, -0.129035, -0.00955417, -0.0648459, 0.0214916, -0.0145015)
+size = Vector3(0.1, 0.1, 0.1)
+material = SubResource("StandardMaterial3D_ly700")
+
 [node name="Sphere" type="CSGSphere3D" parent="VisualHolder"]
-radius = 0.1
+transform = Transform3D(1, 0, 0, 0, 0.0712634, 0, 0, 0, 1, 0, -0.0393869, 0)
+radius = 0.110683
 material = SubResource("StandardMaterial3D_juuhg")
 
 [node name="Teardrop" type="MeshInstance3D" parent="VisualHolder"]
