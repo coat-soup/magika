@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://v17ctq8q57wy"]
+[gd_scene load_steps=11 format=3 uid="uid://v17ctq8q57wy"]
 
 [ext_resource type="Script" uid="uid://co2kieex31iyd" path="res://player/scripts/player_movement.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bgwpxtdhh5567" path="res://player/scripts/player_manager.gd" id="1_rkbax"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://6vbctqshr00b" path="res://spells/data/fireball_data.tres" id="6_boad6"]
 [ext_resource type="Resource" uid="uid://cys4m2wwjwc46" path="res://spells/data/lightning_data.tres" id="6_rgyib"]
 [ext_resource type="Script" uid="uid://c51uewr0gwe3k" path="res://system/health.gd" id="7_boad6"]
+[ext_resource type="Resource" uid="uid://dwaoh1jfkhsu0" path="res://spells/data/slash_data.tres" id="8_hg6s5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
@@ -36,7 +37,7 @@ update_scale = false
 [node name="PlayerSpellManager" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, -1, 4.71871e-08, 1.33588, -1.19269)
 script = ExtResource("4_yw30f")
-spells = Array[ExtResource("5_g6k8r")]([ExtResource("6_boad6"), ExtResource("6_rgyib"), null, null])
+spells = Array[ExtResource("5_g6k8r")]([ExtResource("6_boad6"), ExtResource("6_rgyib"), ExtResource("8_hg6s5"), null])
 metadata/_custom_type_script = "uid://c03v7twr36odm"
 
 [node name="Health" type="Node" parent="."]

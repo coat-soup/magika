@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=3 format=3 uid="uid://dwaoh1jfkhsu0"]
+
+[ext_resource type="Texture2D" uid="uid://c1uvt0txqk16x" path="res://vfx/textures/slash_icon.png" id="1_4y2nc"]
+[ext_resource type="Script" uid="uid://bxkbqqyepynwh" path="res://spells/scripts/spell_data.gd" id="2_fqg5j"]
+
+[resource]
+script = ExtResource("2_fqg5j")
+spell_name = "Slash"
+prefab_path = "res://spells/scenes/slash.tscn"
+power = 20.0
+speed = 40.0
+range = 20.0
+cast_rate = 1.0
+size = 1.0
+icon = ExtResource("1_4y2nc")
+pow_upscale = 0.2
+speed_upscale = 0.2
+range_upscale = 0.2
+cast_upscale = 0.2
+size_upscale = 0.2
+metadata/_custom_type_script = "uid://bxkbqqyepynwh"
