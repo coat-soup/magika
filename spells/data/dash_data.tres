@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=3 format=3 uid="uid://db0c5wkecbtb5"]
+
+[ext_resource type="Texture2D" uid="uid://2ko86gdiwobf" path="res://vfx/textures/lightning_icon.png" id="1_4mvb5"]
+[ext_resource type="Script" uid="uid://bxkbqqyepynwh" path="res://spells/scripts/spell_data.gd" id="2_130lr"]
+
+[resource]
+script = ExtResource("2_130lr")
+spell_name = "Dash"
+prefab_path = "res://spells/scenes/dash.tscn"
+power = 1.0
+speed = 400.0
+range = 5.0
+cast_rate = 1.0
+size = 1.0
+icon = ExtResource("1_4mvb5")
+pow_upscale = 0.2
+speed_upscale = 0.2
+range_upscale = 0.2
+cast_upscale = 0.2
+size_upscale = 0.2
+metadata/_custom_type_script = "uid://bxkbqqyepynwh"

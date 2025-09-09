@@ -72,12 +72,12 @@ func attack():
 
 
 func on_anim_attack_trigger():
-	var attack = attack_prefab.instantiate() as EnemyAttack
-	get_tree().root.add_child(attack)
-	attack.global_position = $AttackPoint.global_position
-	attack.global_rotation = global_rotation
+	var attack_obj = attack_prefab.instantiate() as EnemyAttack
+	get_tree().root.add_child(attack_obj)
+	attack_obj.global_position = $AttackPoint.global_position
+	attack_obj.global_rotation = global_rotation
 	
-	attack.activate(self, damage)
+	attack_obj.activate(self, damage)
 
 
 func stun(time : float):

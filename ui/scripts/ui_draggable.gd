@@ -19,7 +19,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_released("ui_primary") and dragging: end_drag()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if dragging:
 		global_position = get_viewport().get_mouse_position() - size/2
 

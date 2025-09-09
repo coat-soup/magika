@@ -27,7 +27,7 @@ func _ready() -> void:
 	spawn_enemy_loop()
 
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_ESCAPE): get_tree().quit()
 
 

@@ -6,8 +6,8 @@ class_name EnemyProjectileAttack
 @onready var area_3d: Area3D = $Area3D
 
 
-func activate(enemy : Enemy, _damage : int):
-	super.activate(enemy, _damage)
+func activate(_enemy : Enemy, _damage : int):
+	super.activate(_enemy, _damage)
 	print("setting damage to ", damage, " ", _damage)
 	
 	area_3d.body_entered.connect(on_body_entered)

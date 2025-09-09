@@ -22,6 +22,8 @@ var landing : bool
 signal jump_start
 signal jump_land
 
+var dashing := false
+
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -52,11 +54,13 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if input_dir != Vector2.ZERO or face_camera_timer > 0:
-		var target_angle : float = Basis().looking_at(direction, Vector3.UP).get_euler().y if face_camera_timer <= 0 else camera_pivot.global_rotation.y
+		var target_angle : float = Basis.looking_at(direction, Vector3.UP).get_euler().y if face_camera_timer <= 0 else camera_pivot.global_rotation.y
 		body.global_rotation.y = lerp_angle(body.global_rotation.y, target_angle, delta * turn_speed)
 	
 	direction.y = 0
 	direction = direction.normalized()
+	
+	if dashing: return
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and body.is_on_floor():

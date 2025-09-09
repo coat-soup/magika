@@ -11,7 +11,7 @@ func _ready() -> void:
 	enemy.attacked.connect(on_attack)
 	attack_trigger.connect(enemy.on_anim_attack_trigger)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	anim.set("parameters/MoveBlend/blend_position", enemy.velocity.length()/enemy.speed)
 
 

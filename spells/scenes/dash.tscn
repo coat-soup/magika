@@ -1,0 +1,99 @@
+[gd_scene load_steps=15 format=3 uid="uid://dsmcxb1178whg"]
+
+[ext_resource type="Script" uid="uid://lfcrn3h1li6w" path="res://spells/scripts/dash.gd" id="1_fji0m"]
+[ext_resource type="Shader" uid="uid://dhilnaew3cgyr" path="res://vfx/shaders/texture_scroll.tres" id="2_2tboa"]
+[ext_resource type="Texture2D" uid="uid://cvcxgqnhwrqns" path="res://vfx/textures/lightning.png" id="3_bxcq4"]
+[ext_resource type="ArrayMesh" uid="uid://c1162bch8u8ov" path="res://vfx/models/lightning_shape.obj" id="4_k5eth"]
+[ext_resource type="AudioStream" uid="uid://jahtol64vji4" path="res://sfx/lightning_strike.wav" id="8_losu7"]
+
+[sub_resource type="Gradient" id="Gradient_trsk2"]
+colors = PackedColorArray(1, 1.5, 2, 0, 1, 1.5, 2, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lef2n"]
+gradient = SubResource("Gradient_trsk2")
+use_hdr = true
+fill_from = Vector2(0, 0.150538)
+fill_to = Vector2(0, 0.456989)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aobnd"]
+render_priority = 0
+shader = ExtResource("2_2tboa")
+shader_parameter/ColourTex = SubResource("GradientTexture2D_lef2n")
+shader_parameter/Speed = Vector2(0, -2)
+shader_parameter/AlphaTexture = ExtResource("3_bxcq4")
+
+[sub_resource type="Gradient" id="Gradient_tnm8e"]
+offsets = PackedFloat32Array(0, 0.0545455, 0.227273, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_40cv7"]
+gradient = SubResource("Gradient_tnm8e")
+use_hdr = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rvr4w"]
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.7
+color_ramp = SubResource("GradientTexture1D_40cv7")
+
+[sub_resource type="Animation" id="Animation_lef2n"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_trsk2"]
+resource_name = "cast"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Particles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"dissipate"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jtv8d"]
+_data = {
+&"RESET": SubResource("Animation_lef2n"),
+&"cast": SubResource("Animation_trsk2")
+}
+
+[node name="Dash" type="Node3D"]
+script = ExtResource("1_fji0m")
+
+[node name="Particles" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_aobnd")
+emitting = false
+amount = 1
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_rvr4w")
+draw_pass_1 = ExtResource("4_k5eth")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jtv8d")
+}
+
+[node name="LightningSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_losu7")
+unit_size = 40.0
+max_distance = 40.0

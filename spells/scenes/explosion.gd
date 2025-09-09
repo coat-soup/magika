@@ -7,14 +7,14 @@ class_name Explosion
 
 
 static func explode_at_point(source_node : Node3D, pos : Vector3, radius : float, damage : float, source_id : int = 0, particles : PackedScene = null):
-	var exp = preload("res://spells/scenes/explosion.tscn").instantiate() as Explosion
-	exp.particles_scene = particles
-	source_node.get_tree().root.add_child(exp)
-	exp.global_position = pos
-	exp.explode(radius, damage, source_id)
+	var expl = preload("res://spells/scenes/explosion.tscn").instantiate() as Explosion
+	expl.particles_scene = particles
+	source_node.get_tree().root.add_child(expl)
+	expl.global_position = pos
+	expl.explode(radius, damage, source_id)
 	
 	await source_node.get_tree().create_timer(3.0).timeout
-	exp.queue_free()
+	expl.queue_free()
 
 
 func explode(radius, damage, source = 0):
